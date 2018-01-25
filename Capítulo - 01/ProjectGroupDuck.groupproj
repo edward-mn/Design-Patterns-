@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{3539AA94-BC2C-44DC-B0CB-F29A646C7818}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MySimDuck.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MySimDuck">
+        <MSBuild Projects="MySimDuck.dproj"/>
+    </Target>
+    <Target Name="MySimDuck:Clean">
+        <MSBuild Projects="MySimDuck.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MySimDuck:Make">
+        <MSBuild Projects="MySimDuck.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MySimDuck"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MySimDuck:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MySimDuck:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
