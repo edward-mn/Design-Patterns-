@@ -3,7 +3,7 @@ unit UnSwimAbleInterface;
 interface
 type
   ISwimAble = interface
-    procedure swim;
+    function swim: string;
   end;
 
 implementation

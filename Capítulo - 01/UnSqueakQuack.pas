@@ -8,7 +8,7 @@ uses
 type
   TSqueakQuack = class(TInterfacedObject, IQuackAble)
   public
-    procedure quack;
+    function quack: string;
     constructor create;
   end;
 
@@ -21,9 +21,9 @@ begin
 
 end;
 
-procedure TSqueakQuack.quack;
+function TSqueakQuack.quack: string;
 begin
-  Writeln('I can also do diferencial quack, being a squeak');
+  Result :='I can also do diferencial quack, being a squeak';
 end;
 
 end.

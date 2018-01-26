@@ -3,7 +3,7 @@ unit UnFlyAbleInterface;
 interface
 type
   IFlyAble = interface
-    procedure fly;
+    function fly: string;
   end;
 
 implementation

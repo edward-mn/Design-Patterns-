@@ -8,8 +8,8 @@ uses
 type
   TNormalSwim = class (TInterfacedObject, ISwimAble)
   public
+    function swim: string;
     constructor create;
-    procedure swim;
   end;
 
 implementation
@@ -21,10 +21,9 @@ begin
 
 end;
 
-procedure TNormalSwim.swim;
+function TNormalSwim.swim: string;
 begin
-  Writeln('I can swim normally');
-  Readln;
+  Result :='I can swim normally';
 end;
 
 end.
