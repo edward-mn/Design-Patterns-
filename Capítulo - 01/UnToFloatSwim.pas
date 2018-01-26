@@ -8,8 +8,8 @@ uses
 type
   TToFloatSwim = class (TInterfacedObject, ISwimAble)
   public
+    function swim: string;
     constructor create;
-    procedure swim;
   end;
 
 implementation
@@ -21,10 +21,9 @@ begin
 
 end;
 
-procedure TToFloatSwim.swim;
+function TToFloatSwim.swim: string;
 begin
-  Writeln('I only can to float');
-  Readln;
+  Result :='I only can to float';
 end;
 
 end.

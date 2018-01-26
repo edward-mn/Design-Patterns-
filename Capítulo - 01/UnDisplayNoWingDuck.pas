@@ -7,8 +7,8 @@ uses
 type
   TDisplayNoWingDuck = class (TInterfacedObject, IDislplayAble)
   public
+    function display: string;
     constructor create;
-    procedure display;
   end;
 
 implementation
@@ -21,9 +21,9 @@ begin
 
 end;
 
-procedure TDisplayNoWingDuck.display;
+function TDisplayNoWingDuck.display: string;
 begin
-  Writeln('Yhoou, I not have wings');
+  Result := 'Yhoou, I not have wings';
 end;
 
 end.

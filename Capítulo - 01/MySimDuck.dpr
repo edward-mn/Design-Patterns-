@@ -44,20 +44,24 @@ begin
      NoWingDuck := TDuck.Create(TFlyNoWay.Create, TMudeQuack.Create,
         TToSinkSiwm.Create, TDisplayNoWingDuck.create);
 
-      RedHeadDuck.display;
-      RedHeadDuck.fly;
-      RedHeadDuck.Quack;
-      RedHeadDuck.swin;
+      Writeln(RedHeadDuck.display);
+      Writeln(RedHeadDuck.fly);
+      Writeln(RedHeadDuck.Quack);
+      Writeln(RedHeadDuck.swin);
+      Readln;
 
-      RubberDuck.display;
-      RubberDuck.fly;
-      RubberDuck.Quack;
-      RubberDuck.swin;
+      Writeln(RubberDuck.display);
+      Writeln(RubberDuck.fly);
+      Writeln(RubberDuck.Quack);
+      Writeln(RubberDuck.swin);
+      Readln;
 
-      NoWingDuck.display;
-      NoWingDuck.fly;
-      NoWingDuck.Quack;
-      NoWingDuck.swin;
+      Writeln(NoWingDuck.display);
+      Writeln(NoWingDuck.fly);
+      Writeln(NoWingDuck.Quack);
+      Writeln(NoWingDuck.swin);
+      Readln;
+      
     except
       on E: Exception do
         Writeln(E.ClassName, ': ', E.Message);

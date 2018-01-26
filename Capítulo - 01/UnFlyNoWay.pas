@@ -8,7 +8,7 @@ uses
 type
   TFlyNoWay = class (TInterfacedObject, IFlyAble)
   public
-    procedure fly;
+    function fly: string;
     constructor create;
   end;
 
@@ -21,9 +21,9 @@ begin
 
 end;
 
-procedure TFlyNoWay.fly;
+function TFlyNoWay.fly: string;
 begin
-  Writeln('Sorry I can not fly :(');
+  Result :='Sorry I can not fly :(';
 end;
 
 end.

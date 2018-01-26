@@ -6,6 +6,9 @@
         <Projects Include="MySimDuck.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Test\MySimDuckTests.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -23,14 +26,23 @@
     <Target Name="MySimDuck:Make">
         <MSBuild Projects="MySimDuck.dproj" Targets="Make"/>
     </Target>
+    <Target Name="MySimDuckTests">
+        <MSBuild Projects="Test\MySimDuckTests.dproj"/>
+    </Target>
+    <Target Name="MySimDuckTests:Clean">
+        <MSBuild Projects="Test\MySimDuckTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MySimDuckTests:Make">
+        <MSBuild Projects="Test\MySimDuckTests.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="MySimDuck"/>
+        <CallTarget Targets="MySimDuck;MySimDuckTests"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="MySimDuck:Clean"/>
+        <CallTarget Targets="MySimDuck:Clean;MySimDuckTests:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="MySimDuck:Make"/>
+        <CallTarget Targets="MySimDuck:Make;MySimDuckTests:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
