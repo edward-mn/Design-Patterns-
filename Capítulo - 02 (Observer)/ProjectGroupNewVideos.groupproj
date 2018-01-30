@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EF623C91-1148-4B63-831D-3228B27CB5D5}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ProjectNotifyMeVideos.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjectNotifyMeVideos">
+        <MSBuild Projects="ProjectNotifyMeVideos.dproj"/>
+    </Target>
+    <Target Name="ProjectNotifyMeVideos:Clean">
+        <MSBuild Projects="ProjectNotifyMeVideos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectNotifyMeVideos:Make">
+        <MSBuild Projects="ProjectNotifyMeVideos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjectNotifyMeVideos"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjectNotifyMeVideos:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjectNotifyMeVideos:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
