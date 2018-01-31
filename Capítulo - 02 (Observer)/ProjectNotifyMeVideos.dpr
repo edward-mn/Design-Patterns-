@@ -36,6 +36,5 @@ begin
       Writeln(E.ClassName, ': ', E.Message);
   end;
   finally
-
   end;
 end.
