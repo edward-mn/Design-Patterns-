@@ -3,7 +3,7 @@ unit UnDisplayAbleInterface;
 interface
 type
   IDislplayAble = interface
-    procedure display;
+    function display: string;
   end;
 
 implementation

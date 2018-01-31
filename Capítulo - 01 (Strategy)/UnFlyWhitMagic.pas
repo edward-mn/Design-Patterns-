@@ -8,7 +8,7 @@ uses
 type
   TFlyWhitMagic = class (TInterfacedObject, IFlyAble)
   public
-    procedure fly;
+    function fly: string;
     constructor create;
   end;
 
@@ -21,9 +21,9 @@ begin
 
 end;
 
-procedure TFlyWhitMagic.fly;
+function TFlyWhitMagic.fly: string;
 begin
-  Writeln('I can Fly with a Magic');
+  Result :='I can Fly with a Magic';
 end;
 
 end.

@@ -8,8 +8,8 @@ uses
 type
   TToSinkSiwm = class (TInterfacedObject, ISwimAble)
   public
+    function swim: string;
     constructor create;
-    procedure swim;
   end;
 
 implementation
@@ -21,10 +21,9 @@ begin
 
 end;
 
-procedure TToSinkSiwm.swim;
+function TToSinkSiwm.swim: string;
 begin
-  Writeln('Sorry I sink on the water');
-  Readln;
+  Result := 'Sorry I sink on the water';
 end;
 
 end.

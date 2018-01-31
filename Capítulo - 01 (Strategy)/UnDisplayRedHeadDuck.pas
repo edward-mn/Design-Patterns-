@@ -7,8 +7,8 @@ uses
 type
   TDisplayRedHeadDuck = class(TInterfacedObject, IDislplayAble)
   public
+    function display: string;
     constructor create;
-    procedure display;
   end;
 
 implementation
@@ -20,9 +20,9 @@ begin
 
 end;
 
-procedure TDisplayRedHeadDuck.display;
+function TDisplayRedHeadDuck.display: string;
 begin
-  Writeln('Yo, I am a Red Head Duck !');
+  Result := 'Yo, I am a Red Head Duck !';
 end;
 
 end.

@@ -13,11 +13,11 @@ Type
   MakeQuackAble : IQuackAble;
   MakeSwimAble : ISwimAble;
   MakeDisplayAble : IDislplayAble;
-  procedure performfly;
-  procedure display;
-  procedure swin;
-  procedure fly;
-  procedure quack;
+  function performfly: string;
+  function display: string;
+  function swin: string;
+  function fly: string;
+  function quack: string;
   constructor Create(AFlyAble: IFlyAble; AQuakAble: IQuackAble; ASwimAble:
       ISwimAble; ADisplayAble: IDislplayAble); reintroduce;
  end;
@@ -35,29 +35,29 @@ begin
   Self.MakeDisplayAble := ADisplayAble;
 end;
 
-procedure TDuck.Display;
+function TDuck.display: string;
 begin
-  MakeDisplayAble.display;
+  Result := MakeDisplayAble.display;
 end;
 
-procedure TDuck.fly;
+function TDuck.fly: string;
 begin
-  MakeFlyAble.fly;
+  Result := MakeFlyAble.fly;
 end;
 
-procedure TDuck.Quack;
+function TDuck.quack: string;
 begin
-  MakeQuackAble.quack;
+  Result := MakeQuackAble.quack;
 end;
 
-procedure TDuck.performfly;
+function TDuck.performfly: string;
 begin
 
 end;
 
-procedure TDuck.Swin;
+function TDuck.swin: string;
 begin
-  MakeSwimAble.swim;
+  Result := MakeSwimAble.swim;
 end;
 
 end.

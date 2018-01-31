@@ -3,7 +3,7 @@ unit UnQuackAbleInterface;
 interface
 type
   IQuackAble = interface
-  procedure quack;
+    function quack: string;
   end;
 
 implementation

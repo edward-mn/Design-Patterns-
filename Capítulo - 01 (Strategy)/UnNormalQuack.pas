@@ -8,7 +8,7 @@ uses
 type
   TNormalQuack = class (TInterfacedObject, IQuackAble)
   public
-    procedure quack;
+    function quack: string;
     constructor create;
   end;
 
@@ -21,9 +21,9 @@ begin
 
 end;
 
-procedure TNormalQuack.quack;
+function TNormalQuack.quack: string;
 begin
-  Writeln('I can also do a normal quack');
+  Result :='I can also do a normal quack';
 end;
 
 end.
