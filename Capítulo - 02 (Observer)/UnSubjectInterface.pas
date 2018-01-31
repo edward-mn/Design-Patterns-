@@ -6,9 +6,9 @@ uses
   UnObserverInterface;
 type
   ISubjectVideos = interface
-    procedure NovoVideo(Novo: IObserverVideo);
-    procedure DeletarVideo(Deletar: IObserverVideo);
-    procedure Notificar;
+    function NovoVideo(Novo: IObserverVideo): Integer;
+    function DeletarVideo(Deletar: IObserverVideo): Integer;
+    function Notificar: Integer;
   end;
 
 implementation

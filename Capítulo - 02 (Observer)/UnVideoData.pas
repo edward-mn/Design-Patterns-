@@ -9,18 +9,18 @@ uses
 type
   TVideoData = class (TInterfacedObject, ISubjectVideos)
   private
-    FNovo: string;
-    FDeletar: string;
-    FNotificar: string;
+    FNovo: Integer;
+    FDeletar: Integer;
+    FNotificar: Integer;
     FObservers: TList<IObserverVideo>;
   public
     constructor create; reintroduce;
     destructor Destroy; override;
-    procedure NovoVideo(Novo: IObserverVideo);
-    procedure DeletarVideo(Deletar: IObserverVideo);
-    procedure Notificar;
-    procedure Mudanças;
-    procedure AplicarMudanças(Novo, Deletar, Notificar : string);
+    function NovoVideo(Novo: IObserverVideo): Integer;
+    function DeletarVideo(Deletar: IObserverVideo): Integer;
+    function Notificar: Integer;
+    function Mudancas: Integer;
+    function AplicarMudancas(Novo, Deletar, Notificar : Integer): Integer;
   end;
 
 implementation
@@ -33,9 +33,10 @@ begin
   FObservers := TList<IObserverVideo>.Create;
 end;
 
-procedure TVideoData.DeletarVideo(Deletar: IObserverVideo);
+function TVideoData.DeletarVideo(Deletar: IObserverVideo): Integer;
 begin
-  FObservers.Delete(FObservers.IndexOf(Deletar));
+  FObservers.Delete(Notificar);
+//  FObservers.Delete(FObservers.IndexOf(Deletar));
 end;
 
 destructor TVideoData.Destroy;
@@ -45,30 +46,33 @@ begin
 end;
 
 
-procedure TVideoData.AplicarMudanças(Novo, Deletar, Notificar : string);
+function TVideoData.AplicarMudancas(Novo, Deletar, Notificar : Integer): Integer;
 begin
   FNovo := Novo;
   FDeletar := Deletar;
   FNotificar := Notificar;
-  Mudanças;
+  Mudancas;
 end;
 
-procedure TVideoData.Mudanças;
+function TVideoData.Mudancas: Integer;
+var
+  NotificaMudanças : integer;
 begin
-  Notificar;
+  NotificaMudanças := Notificar;
+  Result := NotificaMudanças;
 end;
 
-procedure TVideoData.Notificar;
+function TVideoData.Notificar: Integer;
 var
   IndexObservers : IObserverVideo;
 begin
   for IndexObservers in FObservers do
-    IndexObservers.atualizações(FNovo, FDeletar, FNotificar);
+   Result := IndexObservers.atualizacoes(FNovo, FDeletar, FNotificar);
 end;
 
-procedure TVideoData.NovoVideo(Novo: IObserverVideo);
+function TVideoData.NovoVideo(Novo: IObserverVideo): Integer;
 begin
-  FObservers.Add(Novo);
+  Result := FObservers.Add(Novo);
 end;
 
 end.

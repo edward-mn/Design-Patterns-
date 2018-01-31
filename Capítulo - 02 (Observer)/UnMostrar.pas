@@ -10,22 +10,24 @@ uses
 type
   TMostrar = class (TInterfacedObject, IObserverVideo, ITela)
   private
-    FNovo : string;
-    FDeletar : string;
+    FNovo: Integer;
+    FDeletar: Integer;
+    FNotificar : Integer;
     FSujectVideos : ISubjectVideos;
   public
-    procedure atualizações(Novo, Deletar, Notificar : string);
+    function atualizacoes(Novo, Deletar, Notificar: Integer): Integer;
     constructor create (dia: ISubjectVideos);
-    procedure tela;
+    function tela: string;
   end;
 
 implementation
 { TMostrar }
 
-procedure TMostrar.atualizações(Novo, Deletar, Notificar: string);
+function TMostrar.atualizacoes(Novo, Deletar, Notificar: Integer): Integer;
 begin
   FNovo := Novo;
   FDeletar := Deletar;
+  FNotificar := Notificar;
   tela;
 end;
 
@@ -35,9 +37,12 @@ begin
   FSujectVideos.NovoVideo(Self);
 end;
 
-procedure TMostrar.tela;
+function TMostrar.tela: string;
 begin
-  Writeln(Format('Novos videos:%s' + #13#10 + 'deletados: %s' ,[Fnovo, FDeletar]));
+  Result := (Format('Novos videos: %d' + #13#10 + 'Deletados: %d' + #13#10 +
+  'Notificados: %d',[Fnovo, FDeletar, FNotificar]));
+
+  Writeln(Result);
   Readln;
 end;
 

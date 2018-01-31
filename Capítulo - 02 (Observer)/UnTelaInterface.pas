@@ -3,7 +3,7 @@ unit UnTelaInterface;
 interface
 type
   ITela = interface
-    procedure Tela;
+    function tela: string;
   end;
 
 
