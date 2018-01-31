@@ -3,7 +3,7 @@ unit UnObserverInterface;
 interface
 type
   IObserverVideo = interface
-    procedure atualizações(Novo, Deletar, Notificar : string);
+    function atualizacoes(Novo, Deletar, Notificar: Integer): Integer;
   end;
 
 implementation
