@@ -8,7 +8,7 @@ type
   ISubjectVideos = interface
     procedure NovoVideo(Novo: IObserverVideo);
     procedure DeletarVideo(Deletar: IObserverVideo);
-    procedure Notificar(Notificar: IObserverVideo);
+    procedure Notificar;
   end;
 
 implementation

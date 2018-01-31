@@ -14,16 +14,13 @@ type
     FNotificar: string;
     FObservers: TList<IObserverVideo>;
   public
-//    property NovoVideo: string read FNovo write FNovo;
-//    property DeletarVideo: string read FDeletar write FDeletar;
-//    property Notificar: string read FNotificar write FNotificar;
     constructor create; reintroduce;
     destructor Destroy; override;
     procedure NovoVideo(Novo: IObserverVideo);
     procedure DeletarVideo(Deletar: IObserverVideo);
-    procedure Notificar(Notificar: IObserverVideo);
+    procedure Notificar;
     procedure Mudanças;
-    procedure display(Novo, Deletar, Notificar : string);
+    procedure AplicarMudanças(Novo, Deletar, Notificar : string);
   end;
 
 implementation
@@ -38,7 +35,7 @@ end;
 
 procedure TVideoData.DeletarVideo(Deletar: IObserverVideo);
 begin
-
+  FObservers.Delete(FObservers.IndexOf(Deletar));
 end;
 
 destructor TVideoData.Destroy;
@@ -48,19 +45,25 @@ begin
 end;
 
 
-procedure TVideoData.display(Novo, Deletar, Notificar: string);
+procedure TVideoData.AplicarMudanças(Novo, Deletar, Notificar : string);
 begin
-
+  FNovo := Novo;
+  FDeletar := Deletar;
+  FNotificar := Notificar;
+  Mudanças;
 end;
 
 procedure TVideoData.Mudanças;
 begin
-
+  Notificar;
 end;
 
-procedure TVideoData.Notificar(Notificar: IObserverVideo);
+procedure TVideoData.Notificar;
+var
+  IndexObservers : IObserverVideo;
 begin
-
+  for IndexObservers in FObservers do
+    IndexObservers.atualizações(FNovo, FDeletar, FNotificar);
 end;
 
 procedure TVideoData.NovoVideo(Novo: IObserverVideo);
