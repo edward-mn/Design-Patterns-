@@ -4,6 +4,7 @@ interface
 
 uses
   UnObserverInterface;
+
 type
   ISubjectVideos = interface
     function NovoVideo(Novo: IObserverVideo): Integer;
@@ -12,7 +13,5 @@ type
   end;
 
 implementation
-
-
 
 end.

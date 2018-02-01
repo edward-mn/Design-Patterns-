@@ -6,6 +6,9 @@
         <Projects Include="ProjectNotifyMeVideos.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Test\ProjectNotifyMeVideosTests.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -23,14 +26,23 @@
     <Target Name="ProjectNotifyMeVideos:Make">
         <MSBuild Projects="ProjectNotifyMeVideos.dproj" Targets="Make"/>
     </Target>
+    <Target Name="ProjectNotifyMeVideosTests">
+        <MSBuild Projects="Test\ProjectNotifyMeVideosTests.dproj"/>
+    </Target>
+    <Target Name="ProjectNotifyMeVideosTests:Clean">
+        <MSBuild Projects="Test\ProjectNotifyMeVideosTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectNotifyMeVideosTests:Make">
+        <MSBuild Projects="Test\ProjectNotifyMeVideosTests.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="ProjectNotifyMeVideos"/>
+        <CallTarget Targets="ProjectNotifyMeVideos;ProjectNotifyMeVideosTests"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ProjectNotifyMeVideos:Clean"/>
+        <CallTarget Targets="ProjectNotifyMeVideos:Clean;ProjectNotifyMeVideosTests:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ProjectNotifyMeVideos:Make"/>
+        <CallTarget Targets="ProjectNotifyMeVideos:Make;ProjectNotifyMeVideosTests:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
