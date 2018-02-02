@@ -13,7 +13,7 @@ type
     FDeletar: Integer;
     FNotificar: Integer;
   public
-    function atualizacoes(Novo, Deletar, Notificar: Integer): Integer;
+    function atualizacoes(Novo, Deletar, Notificar: Integer): Boolean;
     function tela: string;
   end;
 
@@ -21,12 +21,13 @@ implementation
 
 { TMostrar }
 
-function TMostrar.atualizacoes(Novo, Deletar, Notificar: Integer): Integer;
+function TMostrar.atualizacoes(Novo, Deletar, Notificar: Integer): Boolean;
 begin
   FNovo := Novo;
   FDeletar := Deletar;
   FNotificar := Notificar;
   tela;
+  Result := True;
 end;
 
 function TMostrar.tela: string;

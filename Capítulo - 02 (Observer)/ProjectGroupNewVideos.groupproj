@@ -3,7 +3,7 @@
         <ProjectGuid>{EF623C91-1148-4B63-831D-3228B27CB5D5}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="ProjectNotifyMeVideos.dproj">
+        <Projects Include="ProjectNotifyOfInformation.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="Test\ProjectNotifyMeVideosTests.dproj">
@@ -17,14 +17,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="ProjectNotifyMeVideos">
-        <MSBuild Projects="ProjectNotifyMeVideos.dproj"/>
+    <Target Name="ProjectNotifyOfInformation">
+        <MSBuild Projects="ProjectNotifyOfInformation.dproj"/>
     </Target>
-    <Target Name="ProjectNotifyMeVideos:Clean">
-        <MSBuild Projects="ProjectNotifyMeVideos.dproj" Targets="Clean"/>
+    <Target Name="ProjectNotifyOfInformation:Clean">
+        <MSBuild Projects="ProjectNotifyOfInformation.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ProjectNotifyMeVideos:Make">
-        <MSBuild Projects="ProjectNotifyMeVideos.dproj" Targets="Make"/>
+    <Target Name="ProjectNotifyOfInformation:Make">
+        <MSBuild Projects="ProjectNotifyOfInformation.dproj" Targets="Make"/>
     </Target>
     <Target Name="ProjectNotifyMeVideosTests">
         <MSBuild Projects="Test\ProjectNotifyMeVideosTests.dproj"/>
@@ -36,13 +36,13 @@
         <MSBuild Projects="Test\ProjectNotifyMeVideosTests.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ProjectNotifyMeVideos;ProjectNotifyMeVideosTests"/>
+        <CallTarget Targets="ProjectNotifyOfInformation;ProjectNotifyMeVideosTests"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ProjectNotifyMeVideos:Clean;ProjectNotifyMeVideosTests:Clean"/>
+        <CallTarget Targets="ProjectNotifyOfInformation:Clean;ProjectNotifyMeVideosTests:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ProjectNotifyMeVideos:Make;ProjectNotifyMeVideosTests:Make"/>
+        <CallTarget Targets="ProjectNotifyOfInformation:Make;ProjectNotifyMeVideosTests:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

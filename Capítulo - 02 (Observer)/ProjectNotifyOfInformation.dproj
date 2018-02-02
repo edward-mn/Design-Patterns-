@@ -3,7 +3,7 @@
         <ProjectGuid>{9C8EC42E-1714-402A-B236-358DC0A14D2B}</ProjectGuid>
         <ProjectVersion>16.1</ProjectVersion>
         <FrameworkType>None</FrameworkType>
-        <MainSource>ProjectNotifyMeVideos.dpr</MainSource>
+        <MainSource>ProjectNotifyOfInformation.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -40,7 +40,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>ProjectNotifyMeVideos</SanitizedProjectName>
+        <SanitizedProjectName>ProjectNotifyOfInformation</SanitizedProjectName>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
@@ -110,21 +110,21 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">ProjectNotifyMeVideos.dpr</Source>
+                    <Source Name="MainSource">ProjectNotifyOfInformation.dpr</Source>
                 </Source>
             </Delphi.Personality>
             <Deployment>
+                <DeployFile LocalName="Win32\Debug\ProjectNotifyOfInformation.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>ProjectNotifyOfInformation.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                     <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Win32\Debug\ProjectNotifyMeVideos.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>ProjectNotifyMeVideos.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

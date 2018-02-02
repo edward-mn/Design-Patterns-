@@ -18,8 +18,6 @@ type
 
 implementation
 
-{ TMostrarLikes }
-
 procedure TMostrarLikes.ShowInScreen;
 begin
   Writeln(Format('Novos Followers: %s' + #13#10 + 'UnFollows: %s',

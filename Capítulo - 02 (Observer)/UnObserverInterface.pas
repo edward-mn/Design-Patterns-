@@ -4,7 +4,7 @@ interface
 
 type
   IObserverVideo = interface
-    function atualizacoes(Novo, Deletar, Notificar: Integer): Integer;
+    function atualizacoes(Novo, Deletar, Notificar: Integer): Boolean;
   end;
 
 implementation
