@@ -1,4 +1,4 @@
-program ProjectNotifyMeVideosTests;
+//  inherited;program ProjectNotifyMeVideosTests;
 {
 
   Delphi DUnit Test Project
@@ -17,7 +17,9 @@ program ProjectNotifyMeVideosTests;
 uses
   DUnitTestRunner,
   TestUnVideo in 'TestUnVideo.pas',
-  UnVideo in '..\UnVideo.pas';
+  UnVideo in '..\UnVideo.pas',
+  TestUnSubjectLike in 'TestUnSubjectLike.pas',
+  UnSubjectLike in '..\UnSubjectLike.pas';
 
 {$R *.RES}
 

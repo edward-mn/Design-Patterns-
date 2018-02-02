@@ -1,4 +1,4 @@
-program ProjectNotifyMeVideos;
+program ProjectNotifyOfInformation;
 
 {$APPTYPE CONSOLE}
 
@@ -29,10 +29,12 @@ begin
 
   ShowAboutVideos := nil;
   ShowAboutFollowers := nil;
+
   try
     ShowAboutFollowers := TMostrarLikes.Create;
     ShowAboutVideos := TMostrar.create;
   try
+    Writeln('> Observers of Videos <');
     Writeln('Quantos videos foram adicionados?');
     Readln(QtdNovosVideos);
     Writeln('Quantos videos foram deletados?');
@@ -40,9 +42,9 @@ begin
 
 
     QtdNotificacoes := (QtdVideosDeletados + QtdNovosVideos);
-    Readln;
-
     ShowAboutVideos.atualizacoes(QtdNovosVideos,QtdVideosDeletados,QtdNotificacoes);
+    Readln;
+    Writeln('> Observers of Follows <');
     ShowAboutFollowers.Updates('Jorge','Gabriel','Vagner');
 
   except

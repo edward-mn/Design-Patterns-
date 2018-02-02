@@ -12,65 +12,69 @@ type
     FNovo: Integer;
     FDeletar: Integer;
     FNotificar: Integer;
-    FObservers: TList<IObserverVideo>;
   public
-    constructor create; reintroduce;
+    IndexObservers: TList<IObserverVideo>;
+    constructor Create;
     destructor Destroy; override;
-    function NovoVideo(Novo: IObserverVideo): Integer;
-    function DeletarVideo(Deletar: IObserverVideo): Integer;
-    function Notificar: Integer;
-    function Mudancas: Integer;
-    function AplicarMudancas(Novo, Deletar, Notificar: Integer): Integer;
+    function NovoVideo(Novo: IObserverVideo): Boolean;
+    function DeletarVideo(Deletar: IObserverVideo): Boolean;
+    function Notificar: Boolean;
+    function Mudancas: Boolean;
+    function AplicarMudancas(Novo, Deletar, Notificar: Integer): Boolean;
   end;
 
 implementation
 
 { TVideo }
 
-constructor TVideo.create;
+constructor TVideo.Create;
 begin
-  inherited;
-  FObservers := TList<IObserverVideo>.create;
+  IndexObservers := TList<IObserverVideo>.Create;
 end;
 
-function TVideo.DeletarVideo(Deletar: IObserverVideo): Integer;
+function TVideo.DeletarVideo(Deletar: IObserverVideo): Boolean;
 begin
-  FObservers.Delete(FObservers.IndexOf(Deletar));
+  for Deletar in IndexObservers do
+  IndexObservers.Delete(IndexObservers.IndexOf(Deletar));
+  Result := True
 end;
 
 destructor TVideo.Destroy;
 begin
-  FObservers.Free;
+  IndexObservers.Free;
   inherited;
 end;
 
-function TVideo.AplicarMudancas(Novo, Deletar, Notificar: Integer): Integer;
+function TVideo.AplicarMudancas(Novo, Deletar, Notificar: Integer): Boolean;
 begin
   FNovo := Novo;
   FDeletar := Deletar;
   FNotificar := Notificar;
   Mudancas;
+  Result := True;
 end;
 
-function TVideo.Mudancas: Integer;
+function TVideo.Mudancas: Boolean;
+begin
+  Notificar;
+  Result := True;
+end;
+
+function TVideo.Notificar: Boolean;
 var
-  NotificaMudanças: Integer;
+  ListaDeObservers: IObserverVideo;
 begin
-  NotificaMudanças := Notificar;
-  Result := NotificaMudanças;
+  for ListaDeObservers in IndexObservers do
+  begin
+    ListaDeObservers.atualizacoes(FNovo, FDeletar, FNotificar);
+  end;
+  Result := True
 end;
 
-function TVideo.Notificar: Integer;
-var
-  IndexObservers: IObserverVideo;
+function TVideo.NovoVideo(Novo: IObserverVideo): Boolean;
 begin
-  for IndexObservers in FObservers do
-    Result := (IndexObservers.atualizacoes(FNovo, FDeletar, FNotificar));
-end;
-
-function TVideo.NovoVideo(Novo: IObserverVideo): Integer;
-begin
-  Result := FObservers.Add(Novo);
+  IndexObservers.Add(Novo);
+  Result := True;
 end;
 
 end.
