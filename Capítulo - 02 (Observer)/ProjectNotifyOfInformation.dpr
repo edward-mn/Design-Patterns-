@@ -2,7 +2,7 @@ program ProjectNotifyOfInformation;
 
 {$APPTYPE CONSOLE}
 
-{$R *.res}
+{$R *.RES}
 
 uses
   System.SysUtils,

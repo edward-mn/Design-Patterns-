@@ -85,6 +85,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="TestUnVideo.pas"/>
+        <DCCReference Include="..\UnVideo.pas"/>
+        <DCCReference Include="TestUnSubjectLike.pas"/>
+        <DCCReference Include="..\UnSubjectLike.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
