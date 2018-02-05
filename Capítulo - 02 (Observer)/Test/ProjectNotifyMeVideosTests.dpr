@@ -1,4 +1,4 @@
-//  inherited;program ProjectNotifyMeVideosTests;
+program ProjectNotifyMeVideosTests;
 {
 
   Delphi DUnit Test Project
