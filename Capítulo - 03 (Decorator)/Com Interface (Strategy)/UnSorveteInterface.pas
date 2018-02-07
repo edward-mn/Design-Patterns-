@@ -5,7 +5,7 @@ interface
 type
   ISorvete = interface
     function GetDados: string;
-    function GetCusto: currency;
+    function GetCustos: currency;
   end;
 
 implementation

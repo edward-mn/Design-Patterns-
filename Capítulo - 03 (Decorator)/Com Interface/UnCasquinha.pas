@@ -3,33 +3,27 @@ unit UnCasquinha;
 interface
 
 uses
-  UnSorveteInterface, UnSorvete;
+  UnSorveteInterface;
 
 type
-  TCasquinha = class(TInterfacedObject, ISorvete)
+  TCasquinha = class (TInterfacedObject, ISorvete)
   public
     function GetDados: string;
-    function GetCustos: Currency;
-    constructor Create;
+    function GetCusto: currency;
   end;
 
 implementation
 
 { TCasquinha }
 
-constructor TCasquinha.Create;
+function TCasquinha.GetCusto: currency;
 begin
-
-end;
-
-function TCasquinha.GetCustos: Currency;
-begin
-  Result := 2;
+  Result := 2.00;
 end;
 
 function TCasquinha.GetDados: string;
 begin
- Result := 'Casquinha';
+  Result := 'Casquinha';
 end;
 
 end.

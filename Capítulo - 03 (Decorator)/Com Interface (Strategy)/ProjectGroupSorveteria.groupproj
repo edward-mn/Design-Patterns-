@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{EE690288-5C3F-4ABF-B920-3D10B55BC95F}</ProjectGuid>
+        <ProjectGuid>{72845359-4FFA-4CE1-AFC3-14D4DBE9D2A0}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
         <Projects Include="MySorveteria.dproj">

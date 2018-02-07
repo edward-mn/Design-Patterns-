@@ -23,7 +23,7 @@ begin
   try
     PedidoCasquinhaSimples := TCasquinha.Create;
     PedidoCasquinhaSimples := TCobertura.Create(PedidoCasquinhaSimples);
-    Writeln(PedidoCasquinhaSimples.GetDescription + '<<');
+    Writeln(PedidoCasquinhaSimples.GetDescription + '.');
     Writeln(format('%m', [PedidoCasquinhaSimples.Custo]));
     Readln;
 
@@ -31,7 +31,7 @@ begin
     PedidoBananaSplit := TBanana.Create(PedidoBananaSplit);
     PedidoBananaSplit := TBolasDeSorvete.Create(PedidoBananaSplit);
     PedidoBananaSplit := TCobertura.Create(PedidoBananaSplit);
-    Writeln(PedidoBananaSplit.GetDescription + '<<');
+    Writeln(PedidoBananaSplit.GetDescription + '.');
     Writeln(format('%m', [PedidoBananaSplit.Custo]));
     Readln;
     try

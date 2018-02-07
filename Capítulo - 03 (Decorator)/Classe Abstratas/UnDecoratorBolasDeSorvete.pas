@@ -40,7 +40,7 @@ end;
 function TBolasDeSorvete.GetDescription: string;
 begin
   inherited;
-  Result := BolaDeSorvete.GetDescription + 'Bolas de sorvete, ';
+  Result := BolaDeSorvete.GetDescription + ',Bolas de sorvete';
 end;
 
 end.

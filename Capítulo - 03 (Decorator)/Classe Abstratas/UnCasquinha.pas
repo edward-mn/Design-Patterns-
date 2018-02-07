@@ -23,7 +23,7 @@ end;
 function TCasquinha.GetDescription: string;
 begin
   inherited;
-  Result := '>> Casquinha, ';
+  Result := 'Casquinha';
 end;
 
 end.

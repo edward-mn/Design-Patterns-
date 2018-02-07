@@ -38,7 +38,7 @@ end;
 function TBanana.GetDescription: string;
 begin
   inherited;
-  Result := TBanana.GetDescription + '2 Bananas, ';
+  Result := TBanana.GetDescription + ',2 Bananas';
 end;
 
 end.
