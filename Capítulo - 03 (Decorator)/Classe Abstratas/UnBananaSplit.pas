@@ -31,7 +31,7 @@ end;
 function TBananaSplit.GetDescription: string;
 begin
   inherited;
-  Result := '>> Banana Split, ';
+  Result := 'Banana Split';
 end;
 
 end.

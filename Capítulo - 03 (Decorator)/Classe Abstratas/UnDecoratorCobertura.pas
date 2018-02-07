@@ -39,7 +39,7 @@ end;
 function TCobertura.GetDescription: string;
 begin
   inherited;
-  Result := Cobertura.GetDescription + 'Cobertura, ';
+  Result := Cobertura.GetDescription + ',Cobertura';
 end;
 
 end.
