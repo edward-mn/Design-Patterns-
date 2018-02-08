@@ -20,7 +20,7 @@ implementation
 
 constructor TDecorator.Create(Sorvete: ISorvete);
 begin
-  Self.Decorator := Sorvete;
+  Decorator := Sorvete;
 end;
 
 function TDecorator.GetCusto: currency;

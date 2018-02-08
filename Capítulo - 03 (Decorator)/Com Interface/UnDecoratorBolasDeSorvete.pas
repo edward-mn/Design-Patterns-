@@ -18,14 +18,12 @@ implementation
 
 function TDecoratorBolasDeSorvete.GetCusto: Currency;
 begin
-  Result := inherited GetCusto;
-  Result := Result + 1.50;
+  Result := inherited + 1.50;
 end;
 
 function TDecoratorBolasDeSorvete.GetDados: string;
 begin
-  Result := inherited GetDados;
-  Result := Result + ',Bolas de Sorvete';
+  Result := inherited + ',Bolas de Sorvete';
 end;
 
 end.
