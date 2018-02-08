@@ -1,9 +1,9 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{72845359-4FFA-4CE1-AFC3-14D4DBE9D2A0}</ProjectGuid>
+        <ProjectGuid>{77A23979-7DE5-4398-AE30-44765FA65A06}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="MySorveteria.dproj">
+        <Projects Include="ProjectSorveteriaGelada.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -14,23 +14,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="MySorveteria">
-        <MSBuild Projects="MySorveteria.dproj"/>
+    <Target Name="ProjectSorveteriaGelada">
+        <MSBuild Projects="ProjectSorveteriaGelada.dproj"/>
     </Target>
-    <Target Name="MySorveteria:Clean">
-        <MSBuild Projects="MySorveteria.dproj" Targets="Clean"/>
+    <Target Name="ProjectSorveteriaGelada:Clean">
+        <MSBuild Projects="ProjectSorveteriaGelada.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="MySorveteria:Make">
-        <MSBuild Projects="MySorveteria.dproj" Targets="Make"/>
+    <Target Name="ProjectSorveteriaGelada:Make">
+        <MSBuild Projects="ProjectSorveteriaGelada.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="MySorveteria"/>
+        <CallTarget Targets="ProjectSorveteriaGelada"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="MySorveteria:Clean"/>
+        <CallTarget Targets="ProjectSorveteriaGelada:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="MySorveteria:Make"/>
+        <CallTarget Targets="ProjectSorveteriaGelada:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -19,14 +19,12 @@ implementation
 
 function TDecoratorCobertura.GetCusto: currency;
 begin
-  Result := inherited GetCusto;
-  Result := Result + 0.75;
+  Result := inherited + 0.75;
 end;
 
 function TDecoratorCobertura.GetDados: string;
 begin
-  Result := inherited GetDados;
-  Result := Result + ',Cobertura';
+  Result := inherited + ',Cobertura';
 end;
 
 end.

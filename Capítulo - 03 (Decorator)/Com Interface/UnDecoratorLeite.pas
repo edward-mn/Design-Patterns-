@@ -18,14 +18,12 @@ implementation
 
 function TDecoratorLeite.GetCusto: Currency;
 begin
-  Result := inherited GetCusto;
-  Result := Result + 1;
+  Result := inherited + 1;
 end;
 
 function TDecoratorLeite.GetDados: string;
 begin
-  Result := inherited GetDados;
-  Result := Result + ',Leite';
+  Result := inherited + ',Leite';
 end;
 
 end.
