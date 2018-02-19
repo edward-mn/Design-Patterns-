@@ -8,7 +8,7 @@ uses
 type
   TBrasilCarGrafitado = class(TConcessionaria)
   private
-    FPneuStyleBrasil: TConcessionaria;
+    FCarroGrafitado: TConcessionaria;
   public
     function CreateAutomovel: string; override;
     destructor Destroy; override;
@@ -18,12 +18,13 @@ implementation
 
 function TBrasilCarGrafitado.CreateAutomovel: string;
 begin
+  inherited;
   Result := 'Automovel grafitado estilo Brasil'
 end;
 
 destructor TBrasilCarGrafitado.Destroy;
 begin
-  FPneuStyleBrasil.Free;
+  FCarroGrafitado.Free;
   inherited;
 end;
 

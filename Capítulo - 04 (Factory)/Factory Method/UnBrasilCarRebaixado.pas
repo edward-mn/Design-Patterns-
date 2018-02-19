@@ -8,7 +8,7 @@ uses
 type
   TBrasilCarRebaixado = class(TConcessionaria)
   private
-    FBrasilCar: TConcessionaria;
+    FCarroRebaixado: TConcessionaria;
   public
     function CreateAutomovel: string; override;
     destructor Destroy; override;
@@ -24,7 +24,7 @@ end;
 
 destructor TBrasilCarRebaixado.Destroy;
 begin
-  FBrasilCar.Free;
+  FCarroRebaixado.Free;
   inherited;
 end;
 
