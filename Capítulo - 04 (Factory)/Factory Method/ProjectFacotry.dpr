@@ -1,30 +1,39 @@
 program ProjectFacotry;
 
 {$APPTYPE CONSOLE}
-
 {$R *.res}
 
 uses
   System.SysUtils,
   UnConcessionaria in 'UnConcessionaria.pas',
-  UnConcessionariaStore in 'UnConcessionariaStore.pas',
+  UnConcessionariaBrasilStore in 'UnConcessionariaBrasilStore.pas',
   UnConcessionariaClass in 'UnConcessionariaClass.pas',
-  UnBrasilCar in 'UnBrasilCar.pas';
+  UnBrasilCarRebaixado in 'UnBrasilCarRebaixado.pas',
+  UnBrasilCarGrafitado in 'UnBrasilCarGrafitado.pas';
 
 var
-  Automovel : TConcessionaria;
+  CarroRebaixado: TConcessionaria;
+  CarroGrafitado: TConcessionaria;
 
 begin
-  Automovel := TConcessionariaStore.GetAutomovel('TBrasilCar');
-try
-//  Automovel := TConcessionariaStore.GetAutomovel('TBrasilCar');
+  CarroRebaixado := nil;
+  CarroGrafitado := nil;
   try
-  Writeln(Automovel.CreateAutomovel);
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
+    CarroRebaixado := TConcessionariaStore.GetAutomovel('TBrasilCarRebaixado');
+    CarroGrafitado := TConcessionariaStore.GetAutomovel('TBrasilCarGrafitado');
+    try
+      Writeln(CarroRebaixado.CreateAutomovel);
+      Readln;
+      Writeln(CarroGrafitado.CreateAutomovel);
+      Readln;
+    except
+      on E: Exception do
+        Writeln(E.ClassName, ': ', E.Message);
+    end;
+  finally
+    ReportMemoryLeaksOnShutdown := True;
+    CarroRebaixado.Free;
+    CarroGrafitado.Free;
   end;
-finally
-  Automovel.Free;
-end;
+
 end.
