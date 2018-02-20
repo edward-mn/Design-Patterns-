@@ -37,17 +37,17 @@ begin
 end;
 
 procedure TestTConcessionariaStore.TestRegisterAutomovel;
+//var
+// c : TBrasilCarGrafitado;
 begin
-
+//  CheckEquals(FConcessionariaStore.RegisterAutomovel(TBrasilCarGrafitado), TConcessionariaStore.RegisterAutomovel(TBrasilCarGrafitado);
 end;
 
 procedure TestTConcessionariaStore.TestGetAutomovel;
 var
-  i : TConcessionaria;
-  c : TBrasilCarGrafitado;
+  c : TConcessionaria;
 begin
-//  FConcessionariaStore.GetAutomovel('TBrasilCarGrafitado');
-  CheckEquals( c.CreateAutomovel ,i.CreateAutomovel('TBrasilCarGrafitado'));
+  CheckEquals( TConcessionariaStore.GetAutomovel, FConcessionariaStore.GetAutomovel('TBrasilCarGrafitado'));
 end;
 
 initialization
