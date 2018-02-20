@@ -3,7 +3,8 @@ unit UnConcessionariaBrasilStore;
 interface
 
 uses
-  UnConcessionaria, UnConcessionariaClass, System.SysUtils;
+  UnConcessionaria, UnConcessionariaClass, System.SysUtils,
+  System.Generics.Collections;
 
 type
   TConcessionariaStore = class
