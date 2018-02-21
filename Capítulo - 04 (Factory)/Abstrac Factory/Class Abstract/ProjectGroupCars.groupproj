@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E0D67F1A-13BC-438D-AE89-257FB2B9C8BE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ProjectFactoryCars.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\ProjectFactoryCarsTests.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjectFactoryCars">
+        <MSBuild Projects="ProjectFactoryCars.dproj"/>
+    </Target>
+    <Target Name="ProjectFactoryCars:Clean">
+        <MSBuild Projects="ProjectFactoryCars.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectFactoryCars:Make">
+        <MSBuild Projects="ProjectFactoryCars.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectFactoryCarsTests">
+        <MSBuild Projects="Test\ProjectFactoryCarsTests.dproj"/>
+    </Target>
+    <Target Name="ProjectFactoryCarsTests:Clean">
+        <MSBuild Projects="Test\ProjectFactoryCarsTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectFactoryCarsTests:Make">
+        <MSBuild Projects="Test\ProjectFactoryCarsTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjectFactoryCars;ProjectFactoryCarsTests"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjectFactoryCars:Clean;ProjectFactoryCarsTests:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjectFactoryCars:Make;ProjectFactoryCarsTests:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
