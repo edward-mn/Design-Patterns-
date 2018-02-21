@@ -16,21 +16,24 @@ type
 
 implementation
 
+uses
+  UnHatchVolkswagem, UnPicapeVolkswagem, UnSedanVolkswagem;
+
 { TFactoryVolkswagem }
 
 function TFactoryVolkswagem.GetHatchDescripton: IHatch;
 begin
-
+  Result := THatchVolkswagem.Create;
 end;
 
 function TFactoryVolkswagem.GetPicapeDescription: IPicape;
 begin
-
+  Result := TPicapeVolkswagem.Create;
 end;
 
 function TFactoryVolkswagem.GetSedanDescription: ISedan;
 begin
-
+  Result := TSedanVolkswagem.Create;
 end;
 
 end.

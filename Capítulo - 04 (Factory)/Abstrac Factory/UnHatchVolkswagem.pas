@@ -3,10 +3,12 @@ unit UnHatchVolkswagem;
 interface
 
 uses
-  System.SysUtils, UnHatchInterface;
+  System.SysUtils, UnHatchInterface, UnGlobalDefinitions;
 
 type
   THatchVolkswagem = class (TInterfacedObject, IHatch)
+  private
+    FGetDescriptionGlobalHatch : TGlobalDefinitions;
   public
     function CostBenefic: string;
     function DimensionOfCar: string;
@@ -18,12 +20,12 @@ implementation
 
 function THatchVolkswagem.CostBenefic: string;
 begin
-//  Result :=
+  Result := FGetDescriptionGlobalHatch.CostBenefic;
 end;
 
 function THatchVolkswagem.DimensionOfCar: string;
 begin
-
+  Result := FGetDescriptionGlobalHatch.DimensionOfCar;
 end;
 
 end.

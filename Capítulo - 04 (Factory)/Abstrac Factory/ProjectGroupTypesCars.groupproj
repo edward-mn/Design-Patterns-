@@ -3,7 +3,10 @@
         <ProjectGuid>{4E5FEE43-5749-48B2-91CC-4F59DFA1D238}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="ProjectTypesCar.dproj">
+        <Projects Include="ProjectCars.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Test\ProjectCarsTests.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -14,23 +17,32 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="ProjectTypesCar">
-        <MSBuild Projects="ProjectTypesCar.dproj"/>
+    <Target Name="ProjectCars">
+        <MSBuild Projects="ProjectCars.dproj"/>
     </Target>
-    <Target Name="ProjectTypesCar:Clean">
-        <MSBuild Projects="ProjectTypesCar.dproj" Targets="Clean"/>
+    <Target Name="ProjectCars:Clean">
+        <MSBuild Projects="ProjectCars.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ProjectTypesCar:Make">
-        <MSBuild Projects="ProjectTypesCar.dproj" Targets="Make"/>
+    <Target Name="ProjectCars:Make">
+        <MSBuild Projects="ProjectCars.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectCarsTests">
+        <MSBuild Projects="Test\ProjectCarsTests.dproj"/>
+    </Target>
+    <Target Name="ProjectCarsTests:Clean">
+        <MSBuild Projects="Test\ProjectCarsTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectCarsTests:Make">
+        <MSBuild Projects="Test\ProjectCarsTests.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="ProjectTypesCar"/>
+        <CallTarget Targets="ProjectCars;ProjectCarsTests"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ProjectTypesCar:Clean"/>
+        <CallTarget Targets="ProjectCars:Clean;ProjectCarsTests:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ProjectTypesCar:Make"/>
+        <CallTarget Targets="ProjectCars:Make;ProjectCarsTests:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
