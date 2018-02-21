@@ -16,25 +16,31 @@ uses
   UnSedanFiat in 'UnSedanFiat.pas',
   UnFactoryVolkswagem in 'UnFactoryVolkswagem.pas',
   UnHatchVolkswagem in 'UnHatchVolkswagem.pas',
-  UnGlobalDefinitions in 'UnGlobalDefinitions.pas';
+  UnGlobalDefinitions in 'UnGlobalDefinitions.pas',
+  UnPicapeVolkswagem in 'UnPicapeVolkswagem.pas',
+  UnSedanVolkswagem in 'UnSedanVolkswagem.pas';
 
 var
-  LojaFiat : IFactoryTypeCar;
+  ConcessionariaFiat : IFactoryTypeCar;
   PicapeToro : IPicape;
-  GrandSiena : ISedan;
+
+  ConcessionariaVolkswagem : IFactoryTypeCar;
+  Up: IHatch;
 begin
   try
-  LojaFiat := TFactoryFiat.Create;
-  PicapeToro := LojaFiat.GetPicapeDescription;
-  GrandSiena := LojaFiat.GetSedanDescription;
+  ConcessionariaFiat := TFactoryFiat.Create;
+  PicapeToro := ConcessionariaFiat.GetPicapeDescription;
+
+  ConcessionariaVolkswagem := TFactoryVolkswagem.Create;
+  Up := ConcessionariaVolkswagem.GetHatchDescripton;
   try
-  Writeln('Picape Toro - Picape');
+  Writeln('Picape Toro - Picape from FIAT');
   Writeln(PicapeToro.Drive4x4);
   Writeln(PicapeToro.EsportiveDescription);
   Readln;
-  Writeln('Grand Siena - Sedan');
-  Writeln(GrandSiena.SpaciousOfCar);
-  Writeln(GrandSiena.KindPeopleUse);
+  Writeln('Grand Siena - Sedan from Volkswagem');
+  Writeln(Up.CostBenefic);
+  Writeln(Up.DimensionOfCar);
   Readln;
   except
     on E: Exception do

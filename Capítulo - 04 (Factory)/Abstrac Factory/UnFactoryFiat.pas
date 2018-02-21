@@ -4,11 +4,10 @@ interface
 
 uses
   UnFactoryTypeCarInterface, System.SysUtils, UnHatchInterface, UnSedanInterface,
-  UnPicapeInterface, UnHatchFiat, UnPicapeFiat, UnSedanFiat;
+  UnPicapeInterface ;
 
 type
   TFactoryFiat = class (TInterfacedObject, IFactoryTypeCar)
-
   public
     function GetHatchDescripton: IHatch;
     function GetPicapeDescription: IPicape;
@@ -16,6 +15,9 @@ type
   end;
 
 implementation
+
+uses
+   UnHatchFiat, UnPicapeFiat, UnSedanFiat;
 
 { TFactoryFiat }
 
