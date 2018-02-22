@@ -1,7 +1,6 @@
 program ProjectFactoryCars;
 
 {$APPTYPE CONSOLE}
-
 {$R *.res}
 
 uses
@@ -17,32 +16,29 @@ uses
   UnSedanFiat in 'UnSedanFiat.pas';
 
 var
-  LojaFiat : TFactoryTypeCarAbs;
-  Hatch : THatchAbs;
+  LojaFiat: TFactoryTypeCarAbs;
+  Hatch: THatchAbs;
 
-//  Teste : TGlobalDefinitions;
 begin
   LojaFiat := nil;
   Hatch := nil;
-try
-  LojaFiat := TFactoryFiat.Create;
-  Hatch := LojaFiat.GetHatchDescription;
-
-//  Teste := TGlobalDefinitions.Create;  Perguntar....
   try
-  Writeln(Hatch.CostBenefic);
-  Writeln(Hatch.DimensionOfCar);
+    LojaFiat := TFactoryFiat.Create;
+    Hatch := LojaFiat.GetHatchDescription;
 
-//  Writeln(Teste.CostBenefic);
-  Readln;
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
+    try
+      Writeln(Hatch.CostBenefic);
+      Writeln(Hatch.DimensionOfCar);
+
+      Readln;
+    except
+      on E: Exception do
+        Writeln(E.ClassName, ': ', E.Message);
+    end;
+  finally
+    LojaFiat.Free;
+    Hatch.Free;
+    ReportMemoryLeaksOnShutdown := True;
   end;
-finally
-//  Teste.Free;
-  LojaFiat.Free;
-  Hatch.Free;
-  ReportMemoryLeaksOnShutdown := True;
-end;
+
 end.

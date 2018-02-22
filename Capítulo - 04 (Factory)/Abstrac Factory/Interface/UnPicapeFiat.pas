@@ -6,9 +6,9 @@ uses
   System.SysUtils, UnPicapeInterface, UnGlobalDefinitions;
 
 type
-  TPicape = class (TInterfacedObject, IPicape)
+  TPicape = class(TInterfacedObject, IPicape)
   private
-    FGetDiscriptionGlobalPicape : TGlobalDefinitions;
+    FGetDiscriptionGlobalPicape: TGlobalDefinitions;
   public
     function Drive4x4: string;
     function EsportiveDescription: string;

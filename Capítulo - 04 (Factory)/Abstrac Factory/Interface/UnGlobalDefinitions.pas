@@ -6,13 +6,13 @@ uses
   UnHatchInterface, UnPicapeInterface, UnSedanInterface;
 
 type
-  TGlobalDefinitions = class (TInterfacedObject, IHatch, IPicape, ISedan)
+  TGlobalDefinitions = class(TInterfacedObject, IHatch, IPicape, ISedan)
   public
     function CostBenefic: String;
     function DimensionOfCar: string;
 
-    function EsportiveDescription : string;
-    function Drive4x4 : string;
+    function EsportiveDescription: string;
+    function Drive4x4: string;
 
     function SpaciousOfCar: string;
     function KindPeopleUse: string;

@@ -82,9 +82,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="UnConcessionaria.pas"/>
+        <DCCReference Include="UnCarro.pas"/>
         <DCCReference Include="UnConcessionariaBrasilStore.pas"/>
-        <DCCReference Include="UnConcessionariaClass.pas"/>
         <DCCReference Include="UnBrasilCarRebaixado.pas"/>
         <DCCReference Include="UnBrasilCarGrafitado.pas"/>
         <BuildConfiguration Include="Release">

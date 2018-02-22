@@ -3,11 +3,12 @@ unit UnFactoryFiat;
 interface
 
 uses
-  UnFactoryTypeCarInterface, System.SysUtils, UnHatchInterface, UnSedanInterface,
-  UnPicapeInterface ;
+  UnFactoryTypeCarInterface, System.SysUtils, UnHatchInterface,
+  UnSedanInterface,
+  UnPicapeInterface;
 
 type
-  TFactoryFiat = class (TInterfacedObject, IFactoryTypeCar)
+  TFactoryFiat = class(TInterfacedObject, IFactoryTypeCar)
   public
     function GetHatchDescripton: IHatch;
     function GetPicapeDescription: IPicape;
@@ -17,7 +18,7 @@ type
 implementation
 
 uses
-   UnHatchFiat, UnPicapeFiat, UnSedanFiat;
+  UnHatchFiat, UnPicapeFiat, UnSedanFiat;
 
 { TFactoryFiat }
 

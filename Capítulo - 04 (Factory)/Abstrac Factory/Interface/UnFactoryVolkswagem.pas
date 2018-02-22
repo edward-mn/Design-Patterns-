@@ -7,7 +7,7 @@ uses
   UnPicapeInterface, UnSedanInterface;
 
 type
-  TFactoryVolkswagem = class (TInterfacedObject, IFactoryTypeCar)
+  TFactoryVolkswagem = class(TInterfacedObject, IFactoryTypeCar)
   public
     function GetHatchDescripton: IHatch;
     function GetPicapeDescription: IPicape;

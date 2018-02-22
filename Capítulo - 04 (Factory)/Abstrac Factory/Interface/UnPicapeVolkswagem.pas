@@ -1,15 +1,14 @@
 unit UnPicapeVolkswagem;
 
-
 interface
 
 uses
   System.SysUtils, UnPicapeInterface, UnGlobalDefinitions;
 
 type
-  TPicapeVolkswagem = class (TInterfacedObject, IPicape)
+  TPicapeVolkswagem = class(TInterfacedObject, IPicape)
   private
-    FGetDescriptionGlobalPicape : TGlobalDefinitions;
+    FGetDescriptionGlobalPicape: TGlobalDefinitions;
   public
     function Drive4x4: string;
     function EsportiveDescription: string;

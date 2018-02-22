@@ -3,7 +3,8 @@ unit TestUnHatchFiat;
 interface
 
 uses
-  TestFramework, UnHatchFiat, UnHatchInterface, System.SysUtils, UnGlobalDefinitions;
+  TestFramework, UnHatchFiat, UnHatchInterface, System.SysUtils,
+  UnGlobalDefinitions;
 
 type
   TestTHatch = class(TTestCase)
@@ -20,7 +21,7 @@ type
 
 implementation
 
-{TestTHatch}
+{ TestTHatch }
 
 procedure TestTHatch.SetUp;
 begin
@@ -49,6 +50,7 @@ begin
 end;
 
 initialization
-  RegisterTest(TestTHatch.Suite);
-end.
 
+RegisterTest(TestTHatch.Suite);
+
+end.

@@ -5,15 +5,14 @@ program ProjectFacotry;
 
 uses
   System.SysUtils,
-  UnConcessionaria in 'UnConcessionaria.pas',
+  UnCarro in 'UnCarro.pas',
   UnConcessionariaBrasilStore in 'UnConcessionariaBrasilStore.pas',
-  UnConcessionariaClass in 'UnConcessionariaClass.pas',
   UnBrasilCarRebaixado in 'UnBrasilCarRebaixado.pas',
   UnBrasilCarGrafitado in 'UnBrasilCarGrafitado.pas';
 
 var
-  CarroRebaixado: TConcessionaria;
-  CarroGrafitado: TConcessionaria;
+  CarroRebaixado: TCarro;
+  CarroGrafitado: TCarro;
 
 begin
   CarroRebaixado := nil;
@@ -22,9 +21,9 @@ begin
     CarroRebaixado := TConcessionariaStore.GetAutomovel('TBrasilCarRebaixado');
     CarroGrafitado := TConcessionariaStore.GetAutomovel('TBrasilCarGrafitado');
     try
-      Writeln(CarroRebaixado.CreateAutomovel);
+      Writeln(CarroRebaixado.Nome);
       Readln;
-      Writeln(CarroGrafitado.CreateAutomovel);
+      Writeln(CarroGrafitado.Nome);
       Readln;
     except
       on E: Exception do

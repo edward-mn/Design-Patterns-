@@ -12,11 +12,24 @@ type
   public
     function KindPeopleUse: string; override;
     function SpaciousOfCar: string; override;
+    constructor Create;
+    destructor Destroy; override;
   end;
 
 implementation
 
 { TSedanFiat }
+
+constructor TSedanFiat.Create;
+begin
+  FGetDescriptionSedan := TGlobalDefinitions.Create;
+end;
+
+destructor TSedanFiat.Destroy;
+begin
+  FGetDescriptionSedan.Free;
+  inherited;
+end;
 
 function TSedanFiat.KindPeopleUse: string;
 begin

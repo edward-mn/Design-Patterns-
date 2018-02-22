@@ -3,29 +3,22 @@ unit UnBrasilCarGrafitado;
 interface
 
 uses
-  UnConcessionaria, UnConcessionariaBrasilStore;
+  UnConcessionariaBrasilStore, UnCarro;
 
 type
-  TBrasilCarGrafitado = class(TConcessionaria)
+  TBrasilCarGrafitado = class(TCarro)
   private
-    FCarroGrafitado: TConcessionaria;
   public
-    function CreateAutomovel: string; override;
-    destructor Destroy; override;
+    function Nome: string; override;
   end;
 
 implementation
 
-function TBrasilCarGrafitado.CreateAutomovel: string;
-begin
-  inherited;
-  Result := 'Automovel grafitado estilo Brasil'
-end;
+{ TBrasilCarGrafitado }
 
-destructor TBrasilCarGrafitado.Destroy;
+function TBrasilCarGrafitado.Nome: string;
 begin
-  FCarroGrafitado.Free;
-  inherited;
+  Result := 'Carro grafitado';
 end;
 
 initialization

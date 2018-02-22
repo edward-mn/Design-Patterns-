@@ -3,8 +3,7 @@ unit TestUnConcessionariaBrasilStore;
 interface
 
 uses
-  TestFramework, UnConcessionaria, UnConcessionariaClass, System.SysUtils,
-  UnConcessionariaBrasilStore;
+  TestFramework, System.SysUtils, UnConcessionariaBrasilStore;
 
 type
   TestTConcessionariaStore = class(TTestCase)
@@ -14,16 +13,14 @@ type
     procedure SetUp; override;
     procedure TearDown; override;
   published
-    procedure TestRegisterAutomovel;
-    procedure TestGetAutomovel;
+    procedure Test_GetAutomovel;
+    procedure Test_Automovel_NaoRegistrado;
   end;
 
 implementation
 
 uses
-  UnBrasilCarGrafitado;
-
-
+  UnBrasilCarGrafitado, UnCarro;
 
 procedure TestTConcessionariaStore.SetUp;
 begin
@@ -36,21 +33,31 @@ begin
   FConcessionariaStore := nil;
 end;
 
-procedure TestTConcessionariaStore.TestRegisterAutomovel;
-//var
-// c : TBrasilCarGrafitado;
+procedure TestTConcessionariaStore.Test_Automovel_NaoRegistrado;
 begin
-//  CheckEquals(FConcessionariaStore.RegisterAutomovel(TBrasilCarGrafitado), TConcessionariaStore.RegisterAutomovel(TBrasilCarGrafitado);
+  StartExpectingException(ECarroNotFound);
+  TConcessionariaStore.GetAutomovel('TesteTBrasilCarGrafitado');
+  StopExpectingException('Classe não encontrada.');
 end;
 
-procedure TestTConcessionariaStore.TestGetAutomovel;
+procedure TestTConcessionariaStore.Test_GetAutomovel;
 var
-  c : TConcessionaria;
+  CarroBrEstilizado: TCarro;
 begin
-  CheckEquals( TConcessionariaStore.GetAutomovel, FConcessionariaStore.GetAutomovel('TBrasilCarGrafitado'));
+  TConcessionariaStore.RegisterAutomovel(TBrasilCarGrafitado);
+
+  CarroBrEstilizado := TConcessionariaStore.GetAutomovel('TBrasilCarGrafitado');
+
+  try
+    CheckTrue(CarroBrEstilizado is TBrasilCarGrafitado);
+  finally
+    CarroBrEstilizado.Free;
+  end;
+
 end;
 
 initialization
-  RegisterTest(TestTConcessionariaStore.Suite);
-end.
 
+RegisterTest(TestTConcessionariaStore.Suite);
+
+end.

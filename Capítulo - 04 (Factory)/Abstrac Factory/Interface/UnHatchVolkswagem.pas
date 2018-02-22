@@ -6,9 +6,9 @@ uses
   System.SysUtils, UnHatchInterface, UnGlobalDefinitions;
 
 type
-  THatchVolkswagem = class (TInterfacedObject, IHatch)
+  THatchVolkswagem = class(TInterfacedObject, IHatch)
   private
-    FGetDescriptionGlobalHatch : TGlobalDefinitions;
+    FGetDescriptionGlobalHatch: TGlobalDefinitions;
   public
     function CostBenefic: string;
     function DimensionOfCar: string;

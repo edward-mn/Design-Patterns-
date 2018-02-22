@@ -3,25 +3,25 @@ unit UnConcessionariaBrasilStore;
 interface
 
 uses
-  UnConcessionaria, UnConcessionariaClass, System.SysUtils,
-  System.Generics.Collections;
+  System.SysUtils,
+  System.Generics.Collections, UnCarro;
 
 type
+  ECarroNotFound = class(Exception);
+
   TConcessionariaStore = class
   private
-//    class var FListaAutomovel: TArray<TConcessionariaClass>;
+    class var FListaAutomovel: TArray<TCarroClass>;
   public
-    class var FListaAutomovel: TArray<TConcessionariaClass>;
-    class procedure RegisterAutomovel(Automovel: TConcessionariaClass);
-    class function GetAutomovel(Classe: string): TConcessionaria;
+    class procedure RegisterAutomovel(Automovel: TCarroClass);
+    class function GetAutomovel(Classe: string): TCarro;
   end;
 
 implementation
 
-class function TConcessionariaStore.GetAutomovel(Classe: string)
-  : TConcessionaria;
+class function TConcessionariaStore.GetAutomovel(Classe: string): TCarro;
 var
-  AutomovelClass: TConcessionariaClass;
+  AutomovelClass: TCarroClass;
 begin
   Result := nil;
   for AutomovelClass in FListaAutomovel do
@@ -29,11 +29,10 @@ begin
       Exit(AutomovelClass.Create);
 
   if Result = nil then
-    raise Exception.Create('Lista vazia na criação de automoveis');
+    raise ECarroNotFound.Create('Classe não encontrada.');
 end;
 
-class procedure TConcessionariaStore.RegisterAutomovel
-  (Automovel: TConcessionariaClass);
+class procedure TConcessionariaStore.RegisterAutomovel(Automovel: TCarroClass);
 begin
   FListaAutomovel := FListaAutomovel + [Automovel];
 end;
