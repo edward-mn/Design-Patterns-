@@ -6,9 +6,9 @@ uses
   UnSedanInterface, System.SysUtils, UnGlobalDefinitions;
 
 type
-  TSedan = class (TInterfacedObject, ISedan)
+  TSedan = class(TInterfacedObject, ISedan)
   private
-    FGetDiscriptionGlobalSedan : TGlobalDefinitions;
+    FGetDiscriptionGlobalSedan: TGlobalDefinitions;
   public
     function KindPeopleUse: string;
     function SpaciousOfCar: string;

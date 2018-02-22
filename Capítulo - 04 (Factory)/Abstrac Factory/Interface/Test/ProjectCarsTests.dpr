@@ -23,5 +23,6 @@ uses
 
 begin
   DUnitTestRunner.RunRegisteredTests;
+  ReportMemoryLeaksOnShutdown := True;
 end.
 

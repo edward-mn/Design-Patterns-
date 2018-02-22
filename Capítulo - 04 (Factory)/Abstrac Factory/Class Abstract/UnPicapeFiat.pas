@@ -12,11 +12,24 @@ type
   public
     function Drive4x4: string; override;
     function EsportiveDescription: string; override;
+    constructor Create;
+    destructor Destroy; override;
   end;
 
 implementation
 
 { TPicapeFiat }
+
+constructor TPicapeFiat.Create;
+begin
+  FGetDescriptionPicape := TGlobalDefinitions.Create;
+end;
+
+destructor TPicapeFiat.Destroy;
+begin
+  FGetDescriptionPicape.Free;
+  inherited;
+end;
 
 function TPicapeFiat.Drive4x4: string;
 begin

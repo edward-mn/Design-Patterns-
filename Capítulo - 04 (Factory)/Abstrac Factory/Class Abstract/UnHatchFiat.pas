@@ -12,6 +12,8 @@ type
   public
     function CostBenefic: string; override;
     function DimensionOfCar: string; override;
+    constructor Create;
+    destructor Destroy; override;
   end;
 
 implementation
@@ -22,6 +24,17 @@ function THatchFiat.CostBenefic: string;
 begin
   inherited;
   Result := FGetDescriptionHatch.CostBenefic;
+end;
+
+constructor THatchFiat.Create;
+begin
+  FGetDescriptionHatch := TGlobalDefinitions.Create;
+end;
+
+destructor THatchFiat.Destroy;
+begin
+  FGetDescriptionHatch.Free;
+  inherited;
 end;
 
 function THatchFiat.DimensionOfCar: string;

@@ -3,29 +3,21 @@ unit UnBrasilCarRebaixado;
 interface
 
 uses
-  UnConcessionaria, UnConcessionariaBrasilStore;
+   UnConcessionariaBrasilStore, UnCarro;
 
 type
-  TBrasilCarRebaixado = class(TConcessionaria)
-  private
-    FCarroRebaixado: TConcessionaria;
+  TBrasilCarRebaixado = class(TCarro)
   public
-    function CreateAutomovel: string; override;
-    destructor Destroy; override;
+    function Nome: string; override;
   end;
 
 implementation
 
-function TBrasilCarRebaixado.CreateAutomovel: string;
-begin
-  inherited;
-  Result := 'Automovel rebaixado estilo Brasil';
-end;
+{ TBrasilCarRebaixado }
 
-destructor TBrasilCarRebaixado.Destroy;
+function TBrasilCarRebaixado.Nome: string;
 begin
-  FCarroRebaixado.Free;
-  inherited;
+  Result := 'Carro rebaixado';
 end;
 
 initialization
