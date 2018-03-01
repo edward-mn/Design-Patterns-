@@ -1,0 +1,44 @@
+<XmlTransformation Version="1.0"><Transform Direction="ToCds" DataEncoding="UTF-8"><SelectEach dest="DATAPACKET\ROWDATA\ROW" from="\root\row"><Select dest="@id" from="\id"/><Select dest="@first_name" from="\first_name"/><Select dest="@last_name" from="\last_name"/><Select dest="@email" from="\email"/><Select dest="@gender" from="\gender"/><Select dest="@ip_address" from="\ip_address"/></SelectEach></Transform><XmlSchema RootName="root"><![CDATA[<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <element xmlns="http://www.w3.org/2001/XMLSchema" name="root" type="rootType"/>
+  <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="rootType">
+    <sequence>
+      <element name="row" type="rowType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <element xmlns="http://www.w3.org/2001/XMLSchema" name="row" type="rowType"/>
+  <complexType xmlns="http://www.w3.org/2001/XMLSchema" name="rowType">
+    <sequence>
+      <element name="id" type="idType"/>
+      <element name="first_name" type="first_nameType"/>
+      <element name="last_name" type="last_nameType"/>
+      <element name="email" type="emailType"/>
+      <element name="gender" type="genderType"/>
+      <element name="ip_address" type="ip_addressType"/>
+    </sequence>
+  </complexType>
+  <element xmlns="http://www.w3.org/2001/XMLSchema" name="id" type="idType"/>
+  <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="idType">
+    <restriction base="xs:string"/>
+  </simpleType>
+  <element xmlns="http://www.w3.org/2001/XMLSchema" name="first_name" type="first_nameType"/>
+  <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="first_nameType">
+    <restriction base="xs:string"/>
+  </simpleType>
+  <element xmlns="http://www.w3.org/2001/XMLSchema" name="last_name" type="last_nameType"/>
+  <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="last_nameType">
+    <restriction base="xs:string"/>
+  </simpleType>
+  <element xmlns="http://www.w3.org/2001/XMLSchema" name="email" type="emailType"/>
+  <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="emailType">
+    <restriction base="xs:string"/>
+  </simpleType>
+  <element xmlns="http://www.w3.org/2001/XMLSchema" name="gender" type="genderType"/>
+  <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="genderType">
+    <restriction base="xs:string"/>
+  </simpleType>
+  <element xmlns="http://www.w3.org/2001/XMLSchema" name="ip_address" type="ip_addressType"/>
+  <simpleType xmlns="http://www.w3.org/2001/XMLSchema" name="ip_addressType">
+    <restriction base="xs:string"/>
+  </simpleType>
+</xs:schema>]]></XmlSchema><CdsSkeleton/><XslTransform/><Skeleton><![CDATA[<?xml version="1.0"?><DATAPACKET Version="2.0"><METADATA><FIELDS><FIELD attrname="id" fieldtype="string" WIDTH="2"/><FIELD attrname="first_name" fieldtype="string" WIDTH="9"/><FIELD attrname="last_name" fieldtype="string" WIDTH="11"/><FIELD attrname="email" fieldtype="string" WIDTH="28"/><FIELD attrname="gender" fieldtype="string" WIDTH="6"/><FIELD attrname="ip_address" fieldtype="string" WIDTH="15"/></FIELDS><PARAMS/></METADATA><ROWDATA/><METADATA><FIELDS><FIELD attrname="id" fieldtype="string" WIDTH="2"/><FIELD attrname="first_name" fieldtype="string" WIDTH="9"/><FIELD attrname="last_name" fieldtype="string" WIDTH="11"/><FIELD attrname="email" fieldtype="string" WIDTH="28"/><FIELD attrname="gender" fieldtype="string" WIDTH="6"/><FIELD attrname="ip_address" fieldtype="string" WIDTH="15"/></FIELDS><PARAMS/></METADATA><ROWDATA/></DATAPACKET>
+]]></Skeleton></XmlTransformation>
