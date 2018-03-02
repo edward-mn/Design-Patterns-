@@ -44,38 +44,39 @@ begin
   XMLDoc := CoDOMDocument.Create;
   XmlDoc.Async := False;
   XMLDoc.loadXML(ArquivoXml);
-//  MemoConversorTeste.Lines.Text := ArquivoXml;  Le o dominio do arquivo
+  MemoConversorTeste.Lines.Text := ArquivoXml;  //Le o dominio do arquivo
 end;
 
 procedure TPrincipalConversor.BtnCarregarXMLClick(Sender: TObject);
 begin
 //  PreparaCds;
   CarregaAtributos;
+  CarregaParaNodes;
 end;
 
 { TPrincipalConversor }
 
 procedure TPrincipalConversor.CarregaAtributos;
 var
-  DelimitadorQuery : String;
+  DelimitadorNode : String;
   NodeList : IXmlDOMNodeList;
-  Node,
-  AtributosNode : IXmlDomNode;
+  Node, AtributosNode : IXmlDomNode;
   MapearXml : IXMLDOMNamedNodeMap;
   Field : TField;
   i : Integer;
 begin
+//  DelimitadorNode := ArquivoXml;
   PreparaCds;
-
-  DelimitadorQuery := DelimitadorXml;
-  NodeList := XMLDoc.selectNodes(DelimitadorQuery);
-  Assert(NodeList.length > 0);
+//  XMLDoc.loadXML(ArquivoXml);
+  DelimitadorNode := DelimitadorXml;
+  NodeList := XMLDoc.selectNodes(DelimitadorNode);
+  Assert(NodeList.length > 0);  //.length >0
   Node := NodeList.item[0];
   MapearXml := Node.attributes;
 
     for i := 0 to MapearXml.length -1 do begin
     AtributosNode := MapearXml.item[i];
-    Field := TWideStringField.Create(Self);    // Mudar self
+    Field := TWideStringField.Create(CdsConversor);    // Mudar self
     Field.Size := 80;      // Mudar tamanho
     Field.FieldName := AtributosNode.nodeName;
     Field.DataSet := CdsConversor;
@@ -92,8 +93,36 @@ begin
 end;
 
 procedure TPrincipalConversor.CarregaParaNodes;
+var
+  DelimitadorNode : String;
+  NodeList : IXmlDOMNodeList;
+  Node,
+  AtributosNode : IXmlDomNode;
+  Field : TField;
+  i : Integer;
 begin
+  PreparaCds;
 
+  DelimitadorNode := DelimitadorXml ;
+  NodeList := XMLDoc.selectNodes(DelimitadorNode);
+  Assert(NodeList.length > 0);
+
+    for i := 0 to NodeList.length -1 do begin
+    Node := NodeList.item[i];
+    Field := TStringField.Create(CdsConversor);    // Mudar self
+    Field.Size := 80;      // Mudar tamanho
+    Field.FieldName := AtributosNode.nodeName;
+    Field.DataSet := CdsConversor;
+    end;
+
+    CdsConversor.CreateDataSet;
+
+    CdsConversor.Insert;
+    for i := 0 to NodeList.length -1 do begin
+      Node := NodeList.item[i];
+      CdsConversor.Fields[i].Value := AtributosNode.nodeValue;
+    end;
+    CdsConversor.Post;
 end;
 
 procedure TPrincipalConversor.PreparaCds;
