@@ -19,6 +19,7 @@ object PrincipalConversor: TPrincipalConversor
     Top = 8
     Width = 408
     Height = 283
+    DataSource = DsConversor
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -67,6 +68,7 @@ object PrincipalConversor: TPrincipalConversor
     TabOrder = 5
   end
   object DsConversor: TDataSource
+    DataSet = CdsConversor
     Left = 48
     Top = 176
   end
