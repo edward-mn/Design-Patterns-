@@ -10,19 +10,21 @@ uses
 
 type
   TPrincipalConversor = class(TForm)
-    DBGrid1: TDBGrid;
+    DBGridShow: TDBGrid;
     DsConversor: TDataSource;
     CdsConversor: TClientDataSet;
-    XMLTransformProvider1: TXMLTransformProvider;
+    XMLTransformProvider: TXMLTransformProvider;
     GroupBoxCarregarArquivos: TGroupBox;
     BtnCarregarXML: TBitBtn;
     Btn2CarregarCSV: TBitBtn;
     BtnCarregarJSON: TBitBtn;
     XMLDocument1: TXMLDocument;
     MemoConversorTeste: TMemo;
+    procedure BtnCarregarJSONClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure BtnCarregarXMLClick(Sender: TObject);
   private const
+    ArquivoJson = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.json';
     ArquivoXml = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.xml';
     DelimitadorXml = '/root/row';
   public
@@ -37,21 +39,38 @@ var
 
 implementation
 
+uses
+  UnConversorJson;
+
 {$R *.dfm}
+
+procedure TPrincipalConversor.BtnCarregarJSONClick(Sender: TObject);
+begin
+  MemoConversorTeste.Lines.Clear;
+//  PreparaCds;
+  CdsConversor.Active;
+  TJson.Converter(ArquivoJson, CdsConversor);
+end;
 
 procedure TPrincipalConversor.FormCreate(Sender: TObject);
 begin
-  XMLDoc := CoDOMDocument.Create;
-  XmlDoc.Async := False;
-  XMLDoc.loadXML(ArquivoXml);
-  MemoConversorTeste.Lines.Text := ArquivoXml;  //Le o dominio do arquivo
+//  XMLDoc := CoDOMDocument.Create;
+//  XmlDoc.Async := False;
+//  XMLDoc.loadXML(ArquivoXml);
+//  MemoConversorTeste.Lines.Text := ArquivoXml;  //Le o dominio do arquivo
 end;
 
 procedure TPrincipalConversor.BtnCarregarXMLClick(Sender: TObject);
 begin
 //  PreparaCds;
-  CarregaAtributos;
-  CarregaParaNodes;
+//  CdsConversor.XMLData;
+  CdsConversor.ProviderName := XMLTransformProvider.Name;
+   {Arrumar Aq}
+  CdsConversor.Active := True;
+//  PreparaCds;
+//  DsConversor.DataSet := CdsConversor;
+//  DBGridShow.DataSource := DsConversor;
+
 end;
 
 { TPrincipalConversor }
@@ -128,10 +147,10 @@ end;
 procedure TPrincipalConversor.PreparaCds;
 begin
   if CdsConversor.Active then
-    CdsConversor.Close;
-
+  CdsConversor.Close;
   CdsConversor.FieldDefs.Clear;
   CdsConversor.Fields.Clear;
+  CdsConversor.Active := true;
 end;
 
 end.
