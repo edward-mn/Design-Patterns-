@@ -14,7 +14,7 @@ object PrincipalConversor: TPrincipalConversor
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object DBGrid1: TDBGrid
+  object DBGridShow: TDBGrid
     Left = 199
     Top = 8
     Width = 408
@@ -79,7 +79,13 @@ object PrincipalConversor: TPrincipalConversor
     Left = 128
     Top = 176
   end
-  object XMLTransformProvider1: TXMLTransformProvider
+  object XMLTransformProvider: TXMLTransformProvider
+    TransformRead.TransformationFile = 
+      'C:\Users\Edward Nascimento\Dev\Design-Patterns-\TrasformationOfF' +
+      'iles (Factory)\mockdata\ToDp.xtr'
+    XMLDataFile = 
+      'C:\Users\Edward Nascimento\Dev\Design-Patterns-\TrasformationOfF' +
+      'iles (Factory)\mockdata\data.xml'
     Left = 40
     Top = 240
   end

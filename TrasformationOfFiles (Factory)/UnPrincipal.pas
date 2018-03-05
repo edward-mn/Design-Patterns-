@@ -10,10 +10,10 @@ uses
 
 type
   TPrincipalConversor = class(TForm)
-    DBGrid1: TDBGrid;
+    DBGridShow: TDBGrid;
     DsConversor: TDataSource;
     CdsConversor: TClientDataSet;
-    XMLTransformProvider1: TXMLTransformProvider;
+    XMLTransformProvider: TXMLTransformProvider;
     GroupBoxCarregarArquivos: TGroupBox;
     BtnCarregarXML: TBitBtn;
     Btn2CarregarCSV: TBitBtn;
@@ -24,6 +24,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure BtnCarregarXMLClick(Sender: TObject);
   private const
+    ArquivoJson = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.json';
     ArquivoXml = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.xml';
     ArquivoJson = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.json';
     ArquivoCsv = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.csv';
@@ -54,17 +55,23 @@ end;
 
 procedure TPrincipalConversor.FormCreate(Sender: TObject);
 begin
-  XMLDoc := CoDOMDocument.Create;
-  XmlDoc.Async := False;
-  XMLDoc.loadXML(ArquivoXml);
-  MemoConversorTeste.Lines.Text := ArquivoXml;  //Le o dominio do arquivo
+//  XMLDoc := CoDOMDocument.Create;
+//  XmlDoc.Async := False;
+//  XMLDoc.loadXML(ArquivoXml);
+//  MemoConversorTeste.Lines.Text := ArquivoXml;  //Le o dominio do arquivo
 end;
 
 procedure TPrincipalConversor.BtnCarregarXMLClick(Sender: TObject);
 begin
 //  PreparaCds;
-  CarregaAtributos;
-  CarregaParaNodes;
+//  CdsConversor.XMLData;
+  CdsConversor.ProviderName := XMLTransformProvider.Name;
+   {Arrumar Aq}
+  CdsConversor.Active := True;
+//  PreparaCds;
+//  DsConversor.DataSet := CdsConversor;
+//  DBGridShow.DataSource := DsConversor;
+
 end;
 
 { TPrincipalConversor }
@@ -141,10 +148,10 @@ end;
 procedure TPrincipalConversor.PreparaCds;
 begin
   if CdsConversor.Active then
-    CdsConversor.Close;
-
+  CdsConversor.Close;
   CdsConversor.FieldDefs.Clear;
   CdsConversor.Fields.Clear;
+  CdsConversor.Active := true;
 end;
 
 end.
