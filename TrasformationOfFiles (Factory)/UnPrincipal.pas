@@ -65,9 +65,13 @@ procedure TPrincipalConversor.BtnCarregarXMLClick(Sender: TObject);
 begin
 //  PreparaCds;
 //  CdsConversor.XMLData;
-  CdsConversor.ProviderName := XMLTransformProvider.Name;
-   {Arrumar Aq}
+
+  CdsConversor.Close;
+  CdsConversor.Fields.Clear;
   CdsConversor.Active := True;
+  CdsConversor.ProviderName := XMLTransformProvider.Name;
+
+
 //  PreparaCds;
 //  DsConversor.DataSet := CdsConversor;
 //  DBGridShow.DataSource := DsConversor;
