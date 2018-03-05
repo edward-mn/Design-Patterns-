@@ -20,10 +20,14 @@ type
     BtnCarregarJSON: TBitBtn;
     XMLDocument1: TXMLDocument;
     MemoConversorTeste: TMemo;
+    procedure BtnCarregarJSONClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure BtnCarregarXMLClick(Sender: TObject);
   private const
     ArquivoXml = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.xml';
+    ArquivoJson = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.json';
+    ArquivoCsv = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.csv';
+
     DelimitadorXml = '/root/row';
   public
     XMLDoc : IXMLDOMDocument;
@@ -37,7 +41,16 @@ var
 
 implementation
 
+uses
+  UnConversorJson;
+
 {$R *.dfm}
+
+procedure TPrincipalConversor.BtnCarregarJSONClick(Sender: TObject);
+begin
+  MemoConversorTeste.Lines.Clear;
+  TJson.Converter(ArquivoJson, CdsConversor);
+end;
 
 procedure TPrincipalConversor.FormCreate(Sender: TObject);
 begin

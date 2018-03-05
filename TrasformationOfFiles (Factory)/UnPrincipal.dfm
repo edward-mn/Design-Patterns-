@@ -2,8 +2,8 @@ object PrincipalConversor: TPrincipalConversor
   Left = 0
   Top = 0
   Caption = 'PrincipalConversor'
-  ClientHeight = 635
-  ClientWidth = 616
+  ClientHeight = 585
+  ClientWidth = 1054
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,7 +18,7 @@ object PrincipalConversor: TPrincipalConversor
     Left = 199
     Top = 8
     Width = 408
-    Height = 283
+    Height = 569
     DataSource = DsConversor
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -59,12 +59,13 @@ object PrincipalConversor: TPrincipalConversor
     Height = 25
     Caption = 'Carregar Arquivo JSON'
     TabOrder = 4
+    OnClick = BtnCarregarJSONClick
   end
   object MemoConversorTeste: TMemo
-    Left = 199
-    Top = 304
+    Left = 631
+    Top = 8
     Width = 409
-    Height = 225
+    Height = 569
     TabOrder = 5
   end
   object DsConversor: TDataSource
