@@ -90,6 +90,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UnConversorXml.pas"/>
+        <DCCReference Include="UnConversorCsv.pas"/>
         <DCCReference Include="UnConversorJson.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

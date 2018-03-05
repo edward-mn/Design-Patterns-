@@ -26,6 +26,9 @@ type
   private const
     ArquivoJson = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.json';
     ArquivoXml = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.xml';
+    ArquivoJson = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.json';
+    ArquivoCsv = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.csv';
+
     DelimitadorXml = '/root/row';
   public
     XMLDoc : IXMLDOMDocument;
@@ -47,8 +50,6 @@ uses
 procedure TPrincipalConversor.BtnCarregarJSONClick(Sender: TObject);
 begin
   MemoConversorTeste.Lines.Clear;
-//  PreparaCds;
-  CdsConversor.Active;
   TJson.Converter(ArquivoJson, CdsConversor);
 end;
 
@@ -64,9 +65,13 @@ procedure TPrincipalConversor.BtnCarregarXMLClick(Sender: TObject);
 begin
 //  PreparaCds;
 //  CdsConversor.XMLData;
-  CdsConversor.ProviderName := XMLTransformProvider.Name;
-   {Arrumar Aq}
+
+  CdsConversor.Close;
+  CdsConversor.Fields.Clear;
   CdsConversor.Active := True;
+  CdsConversor.ProviderName := XMLTransformProvider.Name;
+
+
 //  PreparaCds;
 //  DsConversor.DataSet := CdsConversor;
 //  DBGridShow.DataSource := DsConversor;

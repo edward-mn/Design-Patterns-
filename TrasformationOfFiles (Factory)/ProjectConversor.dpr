@@ -4,6 +4,7 @@ uses
   Vcl.Forms,
   UnPrincipal in 'UnPrincipal.pas' {PrincipalConversor},
   UnConversorXml in 'UnConversorXml.pas',
+  UnConversorCsv in 'UnConversorCsv.pas',
   UnConversorJson in 'UnConversorJson.pas';
 
 {$R *.res}

@@ -2,8 +2,8 @@ object PrincipalConversor: TPrincipalConversor
   Left = 0
   Top = 0
   Caption = 'PrincipalConversor'
-  ClientHeight = 584
-  ClientWidth = 1049
+  ClientHeight = 585
+  ClientWidth = 1054
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object PrincipalConversor: TPrincipalConversor
   object DBGridShow: TDBGrid
     Left = 199
     Top = 8
-    Width = 426
+    Width = 408
     Height = 569
     DataSource = DsConversor
     TabOrder = 0

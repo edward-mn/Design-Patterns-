@@ -23,6 +23,8 @@ var
   ItemJson: TJSONValue;
   Field: TField;
 begin
+  DataSet.Close;
+  DataSet.Fields.Clear;
   ArrayJson := nil;
   try
     ArrayJson := TJsonObject.ParseJSONValue
@@ -38,6 +40,7 @@ begin
         Field.DataSet := DataSet;
       end;
     end;
+
 
     DataSet.CreateDataSet;
 
