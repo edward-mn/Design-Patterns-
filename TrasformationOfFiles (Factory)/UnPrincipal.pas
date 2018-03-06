@@ -19,12 +19,13 @@ type
     Btn2CarregarCSV: TBitBtn;
     BtnCarregarJSON: TBitBtn;
     MemoConversorTeste: TMemo;
+    procedure Btn2CarregarCSVClick(Sender: TObject);
     procedure BtnCarregarJSONClick(Sender: TObject);
     procedure BtnCarregarXMLClick(Sender: TObject);
   private const
-    ArquivoJson = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.json';
-    ArquivoXml = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.xml';
-    ArquivoCsv = 'C:\Users\Edward Nascimento\Dev\Teste-TrasformationOfFiles\mockdata\data.csv';
+    ArquivoJson = 'C:\Users\Edward Nascimento\Dev\Design-Patterns-\TrasformationOfFiles (Factory)\mockdata\data.json';
+    ArquivoXml = 'C:\Users\Edward Nascimento\Dev\Design-Patterns-\TrasformationOfFiles (Factory)\mockdata\data.xml';
+    ArquivoCsv = 'C:\Users\Edward Nascimento\Dev\Design-Patterns-\TrasformationOfFiles (Factory)\mockdata\data.csv';
   public
 
   end;
@@ -35,9 +36,15 @@ var
 implementation
 
 uses
-  UnConversorJson, UnConversorXml;
+  UnConversorJson, UnConversorXml, UnConversorCsv;
 
 {$R *.dfm}
+
+procedure TPrincipalConversor.Btn2CarregarCSVClick(Sender: TObject);
+begin
+  MemoConversorTeste.Lines.Clear;
+  TCsv.Converter(ArquivoCsv, CdsConversor);
+end;
 
 procedure TPrincipalConversor.BtnCarregarJSONClick(Sender: TObject);
 begin

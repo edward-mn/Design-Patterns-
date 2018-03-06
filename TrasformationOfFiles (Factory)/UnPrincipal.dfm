@@ -50,6 +50,7 @@ object PrincipalConversor: TPrincipalConversor
     Height = 25
     Caption = 'Carregar Arquivo CSV'
     TabOrder = 3
+    OnClick = Btn2CarregarCSVClick
   end
   object BtnCarregarJSON: TBitBtn
     Left = 31
