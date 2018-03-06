@@ -11,7 +11,6 @@ object PrincipalConversor: TPrincipalConversor
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object DBGridShow: TDBGrid
@@ -87,10 +86,6 @@ object PrincipalConversor: TPrincipalConversor
       'C:\Users\Edward Nascimento\Dev\Design-Patterns-\TrasformationOfF' +
       'iles (Factory)\mockdata\data.xml'
     Left = 40
-    Top = 240
-  end
-  object XMLDocument1: TXMLDocument
-    Left = 128
     Top = 240
   end
 end

@@ -52,7 +52,7 @@ begin
         DataSet.FieldByName(TJSONPair(ItemJson).JsonString.Value).Value :=
           TJSONPair(ItemJson).JsonValue.Value;
         PrincipalConversor.MemoConversorTeste.Lines.Add
-          (TJSONPair(ItemJson).JsonValue.Value );
+          (TJSONPair(ItemJson).JsonValue.Value);
       end;
       DataSet.Post;
     end;
