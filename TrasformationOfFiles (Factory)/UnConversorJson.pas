@@ -3,7 +3,7 @@ unit UnConversorJson;
 interface
 
 uses
-  System.SysUtils, UnPrincipal, System.JSON, Data.DB, System.IOUtils,
+  System.SysUtils, System.JSON, Data.DB, System.IOUtils,
   Datasnap.DBClient;
 
 type
@@ -12,6 +12,9 @@ type
   end;
 
 implementation
+
+uses
+  UnPrincipal;
 
 { TJson }
 
