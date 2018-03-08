@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{71113673-94B3-421A-994D-CE3A8F4C807B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ProjectSingleton.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjectSingleton">
+        <MSBuild Projects="ProjectSingleton.dproj"/>
+    </Target>
+    <Target Name="ProjectSingleton:Clean">
+        <MSBuild Projects="ProjectSingleton.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectSingleton:Make">
+        <MSBuild Projects="ProjectSingleton.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjectSingleton"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjectSingleton:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjectSingleton:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
