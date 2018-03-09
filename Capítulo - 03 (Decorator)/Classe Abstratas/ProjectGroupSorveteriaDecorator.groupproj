@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{162A0583-CA44-40BD-A268-F12DB35E1EF6}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MySorverteria.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MySorverteria">
+        <MSBuild Projects="MySorverteria.dproj"/>
+    </Target>
+    <Target Name="MySorverteria:Clean">
+        <MSBuild Projects="MySorverteria.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MySorverteria:Make">
+        <MSBuild Projects="MySorverteria.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MySorverteria"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MySorverteria:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MySorverteria:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

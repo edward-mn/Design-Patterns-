@@ -1,14 +1,14 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{70C7FCD3-7806-406A-ACE3-33BB7C48EBD9}</ProjectGuid>
+        <ProjectGuid>{197EFBB8-1F21-4F28-8968-16DF617E8100}</ProjectGuid>
         <ProjectVersion>16.1</ProjectVersion>
-        <FrameworkType>None</FrameworkType>
-        <MainSource>ProjectSingleton.dpr</MainSource>
+        <FrameworkType>VCL</FrameworkType>
+        <MainSource>ProjectSimple.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
-        <AppType>Console</AppType>
+        <AppType>Application</AppType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -40,8 +40,9 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>ProjectSingleton</SanitizedProjectName>
-        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+        <SanitizedProjectName>ProjectSimple</SanitizedProjectName>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
@@ -51,14 +52,14 @@
         <DCC_K>false</DCC_K>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
-        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
-        <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <DCC_UsePackage>fsIBX21;dxThemeRS21;dxPScxSchedulerLnkRS21;cxSchedulerRibbonStyleEventEditorRS21;FireDACSqliteDriver;cxSchedulerRS21;FireDACDSDriver;dxDBXServerModeRS21;DBXSqliteDriver;FireDACPgDriver;dxRichEditControlRS21;dxSkinsdxDLPainterRS21;fmx;cxVerticalGridRS21;IndySystem;frxe21;dxSpreadSheetRS21;tethering;cxTreeListdxBarPopupMenuRS21;vclib;cxPivotGridRS21;DBXInterBaseDriver;DataSnapClient;DataSnapServer;DataSnapCommon;frx21;frxIBX21;dxHttpIndyRequestRS21;dxPScxPivotGridLnkRS21;dxSpreadSheetReportDesignerRS21;DataSnapProviderClient;dxPSPrVwRibbonRS21;DBXSybaseASEDriver;cxEditorsRS21;DbxCommonDriver;dxGaugeControlRS21;vclimg;cxGridRS21;dxPsPrVwAdvRS21;dbxcds;dxPDFViewerRS21;DatasnapConnectorsFreePascal;MetropolisUILiveTile;dxPSdxGaugeControlLnkRS21;cxPivotGridOLAPRS21;dxTileControlRS21;MyMaskEditMondinho;vcldb;vcldsnap;cxTreeListRS21;dxSpellCheckerRS21;fmxFireDAC;dxdborRS21;DBXDb2Driver;frxDBX21;dxOfficeCoreRS21;dxWizardControlRS21;dxBarExtItemsRS21;DBXOracleDriver;CustomIPTransport;vclribbon;dxtrmdRS21;dsnap;IndyIPServer;fmxase;vcl;IndyCore;dxSkinsdxBarPainterRS21;dxGDIPlusRS21;DBXMSSQLDriver;IndyIPCommon;CloudService;dxBarExtDBItemsRS21;FireDACIBDriver;frxADO21;DataSnapFireDAC;FireDACDBXDriver;dxPSRichEditControlLnkRS21;dxPSdxSpreadSheetLnkRS21;soapserver;dxDockingRS21;dxdbtrRS21;inetdbxpress;dxLayoutControlRS21;dsnapxml;FireDACInfxDriver;FireDACDb2Driver;dxPScxGridLnkRS21;dxPSdxFCLnkRS21;dxSkinscxSchedulerPainterRS21;adortl;dxPSLnksRS21;dxPSdxDBOCLnkRS21;FireDACASADriver;fsADO21;cxLibraryRS21;dxPSdxMapControlLnkRS21;bindcompfmx;dxPSdxPDFViewerLnkRS21;cxDataRS21;dxComnRS21;FireDACODBCDriver;RESTBackendComponents;emsclientfiredac;dxTabbedMDIRS21;rtl;dbrtl;DbxClientDriver;dxPSdxOCLnkRS21;FireDACCommon;bindcomp;inetdb;dxorgcRS21;dxPScxExtCommonRS21;dxPScxTLLnkRS21;dxPSdxLCLnkRS21;DbxDevartPostgreSQLDriver210;DBXOdbcDriver;frxDB21;vclFireDAC;dxMapControlRS21;xmlrtl;DataSnapNativeClient;svnui;ibxpress;cxExportRS21;IndyProtocols;DBXMySQLDriver;cxPivotGridChartRS21;FireDACCommonDriver;dxRichEditControlCoreRS21;bindengine;vclactnband;bindcompdbx;soaprtl;fsDB21;dxFlowChartRS21;bindcompvcl;fs21;dxCoreRS21;cxPageControlRS21;vclie;dxmdsRS21;cxSchedulerTreeBrowserRS21;FireDACADSDriver;vcltouch;dxPSCoreRS21;dxSpreadSheetConditionalFormattingDialogsRS21;dxSkinscxPCPainterRS21;dxServerModeRS21;emsclient;dxPScxCommonRS21;dxPSdxDBTVLnkRS21;dxSkinsdxRibbonPainterRS21;VCLRESTComponents;FireDACMSSQLDriver;FireDAC;VclSmp;DBXInformixDriver;dxRibbonCustomizationFormRS21;dxBarDBNavRS21;DataSnapConnectors;dxADOServerModeRS21;DataSnapServerMidas;dsnapcon;DBXFirebirdDriver;dxNavBarRS21;inet;dxRibbonRS21;fmxobj;dxSkinsdxNavBarPainterRS21;cxSchedulerGridRS21;FireDACMySQLDriver;soapmidas;vclx;dxPScxVGridLnkRS21;svn;DBXSybaseASADriver;dxBarRS21;FireDACOracleDriver;fmxdae;RESTComponents;dxSkinsCoreRS21;dxFireDACServerModeRS21;FireDACMSAccDriver;dbexpress;DataSnapIndy10ServerTransport;IndyIPClient;$(DCC_UsePackage)</DCC_UsePackage>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_ConsoleTarget>true</DCC_ConsoleTarget>
         <DCC_UsePackage>dxThemeRS21;dxPScxSchedulerLnkRS21;cxSchedulerRibbonStyleEventEditorRS21;FireDACSqliteDriver;cxSchedulerRS21;FireDACDSDriver;dxDBXServerModeRS21;DBXSqliteDriver;FireDACPgDriver;dxRichEditControlRS21;dxSkinsdxDLPainterRS21;fmx;cxVerticalGridRS21;IndySystem;dxSpreadSheetRS21;tethering;cxTreeListdxBarPopupMenuRS21;vclib;cxPivotGridRS21;DBXInterBaseDriver;DataSnapClient;DataSnapServer;DataSnapCommon;dxHttpIndyRequestRS21;dxPScxPivotGridLnkRS21;dxSpreadSheetReportDesignerRS21;DataSnapProviderClient;dxPSPrVwRibbonRS21;DBXSybaseASEDriver;cxEditorsRS21;DbxCommonDriver;dxGaugeControlRS21;vclimg;cxGridRS21;dxPsPrVwAdvRS21;dbxcds;dxPDFViewerRS21;DatasnapConnectorsFreePascal;MetropolisUILiveTile;dxPSdxGaugeControlLnkRS21;cxPivotGridOLAPRS21;dxTileControlRS21;vcldb;vcldsnap;cxTreeListRS21;dxSpellCheckerRS21;fmxFireDAC;dxdborRS21;DBXDb2Driver;dxOfficeCoreRS21;dxWizardControlRS21;dxBarExtItemsRS21;DBXOracleDriver;CustomIPTransport;vclribbon;dxtrmdRS21;dsnap;IndyIPServer;fmxase;vcl;IndyCore;dxSkinsdxBarPainterRS21;dxGDIPlusRS21;DBXMSSQLDriver;IndyIPCommon;CloudService;dxBarExtDBItemsRS21;FireDACIBDriver;DataSnapFireDAC;FireDACDBXDriver;dxPSRichEditControlLnkRS21;dxPSdxSpreadSheetLnkRS21;soapserver;dxDockingRS21;dxdbtrRS21;inetdbxpress;dxLayoutControlRS21;dsnapxml;FireDACInfxDriver;FireDACDb2Driver;dxPScxGridLnkRS21;dxPSdxFCLnkRS21;dxSkinscxSchedulerPainterRS21;adortl;dxPSLnksRS21;dxPSdxDBOCLnkRS21;FireDACASADriver;cxLibraryRS21;dxPSdxMapControlLnkRS21;bindcompfmx;dxPSdxPDFViewerLnkRS21;cxDataRS21;dxComnRS21;FireDACODBCDriver;RESTBackendComponents;emsclientfiredac;dxTabbedMDIRS21;rtl;dbrtl;DbxClientDriver;dxPSdxOCLnkRS21;FireDACCommon;bindcomp;inetdb;dxorgcRS21;dxPScxExtCommonRS21;dxPScxTLLnkRS21;dxPSdxLCLnkRS21;DBXOdbcDriver;vclFireDAC;dxMapControlRS21;xmlrtl;DataSnapNativeClient;ibxpress;cxExportRS21;IndyProtocols;DBXMySQLDriver;cxPivotGridChartRS21;FireDACCommonDriver;dxRichEditControlCoreRS21;bindengine;vclactnband;bindcompdbx;soaprtl;dxFlowChartRS21;bindcompvcl;dxCoreRS21;cxPageControlRS21;vclie;dxmdsRS21;cxSchedulerTreeBrowserRS21;FireDACADSDriver;vcltouch;dxPSCoreRS21;dxSpreadSheetConditionalFormattingDialogsRS21;dxSkinscxPCPainterRS21;dxServerModeRS21;emsclient;dxPScxCommonRS21;dxPSdxDBTVLnkRS21;dxSkinsdxRibbonPainterRS21;VCLRESTComponents;FireDACMSSQLDriver;FireDAC;VclSmp;DBXInformixDriver;dxRibbonCustomizationFormRS21;dxBarDBNavRS21;DataSnapConnectors;dxADOServerModeRS21;DataSnapServerMidas;dsnapcon;DBXFirebirdDriver;dxNavBarRS21;inet;dxRibbonRS21;fmxobj;dxSkinsdxNavBarPainterRS21;cxSchedulerGridRS21;FireDACMySQLDriver;soapmidas;vclx;dxPScxVGridLnkRS21;DBXSybaseASADriver;dxBarRS21;FireDACOracleDriver;fmxdae;RESTComponents;dxSkinsCoreRS21;dxFireDACServerModeRS21;FireDACMSAccDriver;dbexpress;DataSnapIndy10ServerTransport;IndyIPClient;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
@@ -82,6 +83,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="UnPrincipal.pas">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="UnSingleton.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
@@ -101,27 +106,13 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">ProjectSingleton.dpr</Source>
+                    <Source Name="MainSource">ProjectSimple.dpr</Source>
                 </Source>
             </Delphi.Personality>
             <Deployment>
-                <DeployFile LocalName="Win32\Debug\ProjectSingleton.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\ProjectSimple.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>ProjectSingleton.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Win32\Debug\ProjectSingleton.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>ProjectSingleton.exe</RemoteName>
+                        <RemoteName>ProjectSimple.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
