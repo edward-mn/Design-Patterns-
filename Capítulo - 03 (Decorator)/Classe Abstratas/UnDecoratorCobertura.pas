@@ -3,43 +3,44 @@ unit UnDecoratorCobertura;
 interface
 
 uses
-  UnAdicionaisABS, UnSorveteriaABS, System.SysUtils, UnCasquinha;
+  UnAdicionaisABS, UnSorveteriaABS, System.SysUtils, UnCasquinha, UnSingleton;
 
 type
   TCobertura = class(TAdicionais)
   public
-    Cobertura: TSorvete;
+    TCobertura: TSorvete;
     function GetDescription: string; override;
     function Custo: Currency; override;
-    constructor Create(Sorvete: TSorvete);
+    constructor Create(Sorvete: TSorvete); reintroduce;
     Destructor Destroy; override;
   end;
 
 implementation
 
+
 { TCobertura }
 
 constructor TCobertura.Create(Sorvete: TSorvete);
 begin
-  Cobertura := Sorvete;
+  TCobertura := Sorvete;
 end;
 
 function TCobertura.Custo: Currency;
 begin
   inherited;
-  Result := Cobertura.Custo + 0.60;
+  Result := TCobertura.Custo + 0.60;
 end;
 
 destructor TCobertura.Destroy;
 begin
-  Cobertura.Free;
+  TCobertura.Free;
   inherited;
 end;
 
 function TCobertura.GetDescription: string;
 begin
   inherited;
-  Result := Cobertura.GetDescription + ',Cobertura';
+  Result := TCobertura.GetDescription + ',Cobertura';
 end;
 
 end.

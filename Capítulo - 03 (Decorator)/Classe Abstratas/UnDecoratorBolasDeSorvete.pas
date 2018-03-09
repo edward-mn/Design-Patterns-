@@ -12,7 +12,7 @@ type
     BolaDeSorvete: TSorvete;
     function GetDescription: string; override;
     function Custo: Currency; override;
-    constructor Create(Sorvete: TSorvete);
+    constructor Create(Sorvete: TSorvete); reintroduce;
     destructor Destroy; override;
   end;
 

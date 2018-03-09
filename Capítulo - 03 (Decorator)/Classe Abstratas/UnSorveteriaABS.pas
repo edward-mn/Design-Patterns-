@@ -3,7 +3,7 @@ unit UnSorveteriaABS;
 interface
 
 type
-  TSorvete = class abstract
+  TSorvete = class
   public
     function GetDescription: string; virtual; abstract;
     function Custo: Currency; virtual; abstract;
