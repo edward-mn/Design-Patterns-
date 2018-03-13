@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{029306CE-E051-47B9-A54B-78C9027693F7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RemoteControlOfCar.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RemoteControlOfCar">
+        <MSBuild Projects="RemoteControlOfCar.dproj"/>
+    </Target>
+    <Target Name="RemoteControlOfCar:Clean">
+        <MSBuild Projects="RemoteControlOfCar.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RemoteControlOfCar:Make">
+        <MSBuild Projects="RemoteControlOfCar.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RemoteControlOfCar"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RemoteControlOfCar:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RemoteControlOfCar:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
