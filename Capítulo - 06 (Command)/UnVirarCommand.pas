@@ -11,6 +11,7 @@ type
     FVirar : TVirar;
   public
     procedure Execute;
+    procedure Undo;
     constructor Create(Virar: TVirar);
   end;
 
@@ -19,6 +20,7 @@ type
     FVirar : TVirar;
   public
     procedure Execute;
+    procedure Undo;
     constructor Create(Virar: TVirar);
   end;
 
@@ -36,6 +38,11 @@ begin
   FVirar.Direita;
 end;
 
+procedure TVirarDireita.Undo;
+begin
+  FVirar.Esquerda;
+end;
+
 { TVirarEsquarda }
 
 constructor TVirarEsquarda.Create(Virar: TVirar);
@@ -46,6 +53,11 @@ end;
 procedure TVirarEsquarda.Execute;
 begin
   FVirar.Esquerda;
+end;
+
+procedure TVirarEsquarda.Undo;
+begin
+  FVirar.Direita;
 end;
 
 end.

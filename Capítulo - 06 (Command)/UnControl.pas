@@ -7,12 +7,16 @@ uses
 
 type
   TControl = class
-    ListCommandsOn: TList<ICommandControl>;
-    ListCommandsOff: TList<ICommandControl>;
-    ComandoPadrao: TPatternCommand;
+  private
+    FListCommandsOn: TList<ICommandControl>;
+    FListCommandsOff: TList<ICommandControl>;
+    FComandoPadrao: TPatternCommand;
+    FUndo: ICommandControl;
+  public
     procedure SetCommands(Slot: Integer; OnCommands, OffCommands: ICommandControl);
     procedure OnButtonWasPressed(Slot: Integer);
     procedure OffButtonWasPressed(Slot: Integer);
+    procedure UndoWasPressed;
     constructor Create;
     destructor Destroy; override;
   end;
@@ -25,38 +29,47 @@ constructor TControl.Create;
 var
   Contador: Integer;
 begin
-  ListCommandsOn := TList<ICommandControl>.Create;
-  ListCommandsOff := TList<ICommandControl>.Create;
-  ComandoPadrao := TPatternCommand.Create;
+  FListCommandsOn := TList<ICommandControl>.Create;
+  FListCommandsOff := TList<ICommandControl>.Create;
+  FComandoPadrao := TPatternCommand.Create;
   for Contador := 0 to 2 do
   begin
-    ListCommandsOn.Add(ComandoPadrao);
-    ListCommandsOff.Add(ComandoPadrao);
+    FListCommandsOn.Add(FComandoPadrao);
+    FListCommandsOff.Add(FComandoPadrao);
   end;
-//  ComandoPadrao :=
+  FUndo := FComandoPadrao;
 end;
 
 destructor TControl.Destroy;
 begin
-//  ListCommandsOn.Free;
-//  ListCommandsOff.Free;
+  FListCommandsOn.Free;
+  FListCommandsOff.Free;
   inherited;
 end;
 
 procedure TControl.OffButtonWasPressed(Slot: Integer);
 begin
-  ListCommandsOff.Items[0].Execute;
+  FListCommandsOff.Items[0].Execute;
+  FUndo := FListCommandsOff.Items[Slot];
 end;
 
 procedure TControl.OnButtonWasPressed(Slot: Integer);
 begin
-  ListCommandsOn.Items[0].Execute;
+  FListCommandsOn.Items[0].Execute;
+  FUndo := FListCommandsOn.Items[Slot];
 end;
 
 procedure TControl.SetCommands(Slot: Integer; OnCommands, OffCommands: ICommandControl);
 begin
-  ListCommandsOn.Insert(Slot, OnCommands);
-  ListCommandsOff.Insert(Slot, OffCommands);
+  FListCommandsOn.Insert(Slot, OnCommands);
+  FListCommandsOff.Insert(Slot, OffCommands);
+end;
+
+procedure TControl.UndoWasPressed;
+begin
+  Readln;
+  Writeln('Botão desfazer foi precionado');
+  FUndo.Undo;
 end;
 
 end.

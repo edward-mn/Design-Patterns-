@@ -7,8 +7,8 @@ uses
 
 type
   TPatternCommand = class (TInterfacedObject, ICommandControl)
-  public
     procedure Execute;
+    procedure Undo;
   end;
 
 implementation
@@ -16,6 +16,11 @@ implementation
 { TPatternCommand }
 
 procedure TPatternCommand.Execute;
+begin
+
+end;
+
+procedure TPatternCommand.Undo;
 begin
 
 end;
