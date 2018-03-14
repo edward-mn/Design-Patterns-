@@ -19,7 +19,7 @@ end;
 
 procedure TVirar.Esquerda;
 begin
-  Writeln('Virando para Esquerdadffd');
+  Writeln('Virando para Esquerda');
 end;
 
 end.
