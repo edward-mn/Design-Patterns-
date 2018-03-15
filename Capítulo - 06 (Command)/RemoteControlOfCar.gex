@@ -1,0 +1,16 @@
+[General]
+Name=RemoteControlOfCar
+BaseDir=C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\
+Project=1
+[Classes]
+Count=10
+Class0="TVirarDireita","TInterfacedObject, ICommandControl","UnVirarCommand","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnVirarCommand.pas"
+Class1="TVirarEsquarda","TInterfacedObject, ICommandControl","UnVirarCommand","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnVirarCommand.pas"
+Class2="TVirar","","UnVirar","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnVirar.pas"
+Class3="TRemoteControl","","UnRemoteControl","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnRemoteControl.pas"
+Class4="TControl","","UnControl","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnControl.pas"
+Class5="TPatternCommand","TInterfacedObject, ICommandControl","UnPatternCommand","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnPatternCommand.pas"
+Class6="TSpeedOfCar","","UnSpeed","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnSpeed.pas"
+Class7="THighSpeedCommand","TInterfacedObject, ICommandControl","UnSpeed","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnSpeed.pas"
+Class8="TMediumSpeedCommand","TInterfacedObject, ICommandControl","UnSpeed","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnSpeed.pas"
+Class9="TLowSpeedCommand","TInterfacedObject, ICommandControl","UnSpeed","0","C:\Users\Edward Nascimento\Dev\Design-Patterns-\Capítulo - 06 (Command)\UnSpeed.pas"

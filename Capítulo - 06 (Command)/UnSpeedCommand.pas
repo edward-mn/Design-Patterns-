@@ -10,6 +10,7 @@ type
 THighSpeedCommand = class (TInterfacedObject, ICommandControl)
   private
     FMyspeed : TSpeedOfCar;
+    FVelocimentro : Integer;
   public
     procedure Execute;
     procedure Undo;
@@ -17,6 +18,9 @@ THighSpeedCommand = class (TInterfacedObject, ICommandControl)
   end;
 
 TMediumSpeedCommand = class (TInterfacedObject, ICommandControl)
+ private
+    FMyspeed : TSpeedOfCar;
+    FVelocimentro : Integer;
   public
     procedure Execute;
     procedure Undo;
@@ -24,6 +28,9 @@ TMediumSpeedCommand = class (TInterfacedObject, ICommandControl)
   end;
 
 TLowSpeedCommand = class (TInterfacedObject, ICommandControl)
+ private
+    FMyspeed : TSpeedOfCar;
+    FVelocimentro : Integer;
   public
     procedure Execute;
     procedure Undo;
@@ -41,70 +48,70 @@ end;
 
 procedure THighSpeedCommand.Execute;
 begin
-  Velocimentro := MySpeed.Speed;
-  MySpeed.HighSpeed;
+  FVelocimentro := FMyspeed.Speed;
+  FMyspeed.HighSpeed;
 end;
 
 procedure THighSpeedCommand.Undo;
 begin
-  if Velocimentro = 0 then
-    MySpeed.off;
-  if Velocimentro = 1 then
-    MySpeed.LowSpeed;
-  if Velocimentro = 2 then
-    MySpeed.MediuSpeed;
-  if Velocimentro = 3 then
-     MySpeed.HighSpeed;
+  if FVelocimentro = 0 then
+    FMySpeed.off;
+  if FVelocimentro = 1 then
+    FMySpeed.LowSpeed;
+  if FVelocimentro = 2 then
+    FMySpeed.MediuSpeed;
+  if FVelocimentro = 3 then
+     FMySpeed.HighSpeed;
 end;
 
 { TMediumSpeedCommand }
 
 constructor TMediumSpeedCommand.Create(Speed: TSpeedOfCar);
 begin
-  MySpeed := Speed;
+  FMySpeed := Speed;
 end;
 
 procedure TMediumSpeedCommand.Execute;
 begin
-  Velocimentro := MySpeed.Speed;
-  MySpeed.MediuSpeed
+  FVelocimentro := FMySpeed.Speed;
+  FMySpeed.MediuSpeed
 end;
 
 procedure TMediumSpeedCommand.Undo;
 begin
-  if Velocimentro = 0 then
-    MySpeed.off;
-  if Velocimentro = 1 then
-    MySpeed.LowSpeed;
-  if Velocimentro = 2 then
-    MySpeed.MediuSpeed;
-  if Velocimentro = 3 then
-     MySpeed.HighSpeed;
+  if FVelocimentro = 0 then
+    FMySpeed.off;
+  if FVelocimentro = 1 then
+    FMySpeed.LowSpeed;
+  if FVelocimentro = 2 then
+    FMySpeed.MediuSpeed;
+  if FVelocimentro = 3 then
+     FMySpeed.HighSpeed;
 end;
 
 { TLowSpeedCommand }
 
 constructor TLowSpeedCommand.Create(Speed: TSpeedOfCar);
 begin
-  MySpeed := Speed;
+  FMySpeed := Speed;
 end;
 
 procedure TLowSpeedCommand.Execute;
 begin
-  Velocimentro := MySpeed.Speed;
-  MySpeed.LowSpeed;
+  FVelocimentro := FMySpeed.Speed;
+  FMySpeed.LowSpeed;
 end;
 
 procedure TLowSpeedCommand.Undo;
 begin
-   if Velocimentro = 0 then
-    MySpeed.off;
-  if Velocimentro = 1 then
-    MySpeed.LowSpeed;
-  if Velocimentro = 2 then
-    MySpeed.MediuSpeed;
-  if Velocimentro = 3 then
-     MySpeed.HighSpeed;
+   if FVelocimentro = 0 then
+    FMySpeed.off;
+  if FVelocimentro = 1 then
+    FMySpeed.LowSpeed;
+  if FVelocimentro = 2 then
+    FMySpeed.MediuSpeed;
+  if FVelocimentro = 3 then
+    FMySpeed.HighSpeed;
 end;
 
 end.

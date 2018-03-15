@@ -15,18 +15,13 @@ type
     constructor Create;
   end;
 
-var
-    MySpeed : TSpeedOfCar;
-    Velocimentro : Integer;
-
-
 implementation
 
 { TSpeedOfCar }
 
 constructor TSpeedOfCar.Create;
 begin
-  off;
+  Speed := 0;
 end;
 
 procedure TSpeedOfCar.HighSpeed;
