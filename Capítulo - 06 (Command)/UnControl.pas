@@ -14,6 +14,7 @@ type
     FUndo: ICommandControl;
   public
     procedure SetCommands(Slot: Integer; OnCommands, OffCommands: ICommandControl);
+
     procedure OnButtonWasPressed(Slot: Integer);
     procedure OffButtonWasPressed(Slot: Integer);
     procedure UndoWasPressed;
@@ -49,13 +50,13 @@ end;
 
 procedure TControl.OffButtonWasPressed(Slot: Integer);
 begin
-  FListCommandsOff.Items[0].Execute;
+  FListCommandsOff.Items[Slot].Execute;
   FUndo := FListCommandsOff.Items[Slot];
 end;
 
 procedure TControl.OnButtonWasPressed(Slot: Integer);
 begin
-  FListCommandsOn.Items[0].Execute;
+  FListCommandsOn.Items[Slot].Execute;
   FUndo := FListCommandsOn.Items[Slot];
 end;
 
@@ -67,7 +68,6 @@ end;
 
 procedure TControl.UndoWasPressed;
 begin
-  Readln;
   Writeln('Botão desfazer foi precionado');
   FUndo.Undo;
 end;
