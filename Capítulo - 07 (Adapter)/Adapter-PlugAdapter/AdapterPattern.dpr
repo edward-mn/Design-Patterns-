@@ -17,7 +17,7 @@ var
   UkPlug: IPlugUk;
 
 begin
-  Adapter := nil;
+//  Adapter := nil;
   try
     EuaPlug := TPlugEua.Create;
     UkPlug := TPlugUk.Create;
@@ -38,7 +38,8 @@ begin
     end;
   finally
     ReportMemoryLeaksOnShutdown := True;
-    Adapter.Free;
+//    Adapter.Free;
+    FreeAndNil(Adapter);
   end;
 
 end.
