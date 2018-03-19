@@ -1,7 +1,6 @@
 program AdapterPattern;
 
 {$APPTYPE CONSOLE}
-
 {$R *.res}
 
 uses
@@ -13,31 +12,33 @@ uses
   UnConcretPlugUk in 'UnConcretPlugUk.pas';
 
 var
-  Adapter : TAdapterSimple;
-  EuaPlug : IPlugEua;
-  UkPlug : IPlugUk;
+  Adapter: TAdapterSimple;
+  EuaPlug: IPlugEua;
+  UkPlug: IPlugUk;
+
 begin
-  EuaPlug := TPlugEua.Create;
-  UkPlug := TPlugUk.Create;
-  Adapter := TAdapterSimple.Create(UkPlug);
+  Adapter := nil;
   try
-  EuaPlug.ThreeHoleOnPlug;
-  EuaPlug.VoltageEua;
-  Readln;
-  UkPlug.TwoHoleOnPlug;
-  UkPlug.VoltageUk;
-  Readln;
-  Adapter.ThreeHoleOnPlug;
-  Adapter.VoltageEua;
-  Readln;
-  try
-    { TODO -oUser -cConsole Main : Insert code here }
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end;
+    EuaPlug := TPlugEua.Create;
+    UkPlug := TPlugUk.Create;
+    Adapter := TAdapterSimple.Create(UkPlug);
+    try
+      EuaPlug.ThreeHoleOnPlug;
+      EuaPlug.VoltageEua;
+      Readln;
+      UkPlug.TwoHoleOnPlug;
+      UkPlug.VoltageUk;
+      Readln;
+      Adapter.ThreeHoleOnPlug;
+      Adapter.VoltageEua;
+      Readln;
+    except
+      on E: Exception do
+        Writeln(E.ClassName, ': ', E.Message);
+    end;
   finally
-  ReportMemoryLeaksOnShutdown := True;
-  Adapter.Free;
+    ReportMemoryLeaksOnShutdown := True;
+    Adapter.Free;
   end;
+
 end.
