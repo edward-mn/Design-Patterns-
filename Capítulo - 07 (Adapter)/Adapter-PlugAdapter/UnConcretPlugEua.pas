@@ -6,11 +6,12 @@ uses
   UnPlugEuaInterface;
 
 type
-  TPlugEua = class (TInterfacedObject, IPlugEua)
+  TPlugEua = class(TInterfacedObject, IPlugEua)
   public
     procedure ThreeHoleOnPlug;
     procedure VoltageEua;
   end;
+
 implementation
 
 { TPlugEua }

@@ -6,7 +6,7 @@ uses
   UnPlugUkInterface;
 
 type
-  TPlugUk = class (TInterfacedObject, IPlugUk)
+  TPlugUk = class(TInterfacedObject, IPlugUk)
   public
     procedure TwoHoleOnPlug;
     procedure VoltageUk;

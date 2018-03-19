@@ -6,13 +6,13 @@ uses
   UnPlugEuaInterface, UnPlugUkInterface;
 
 type
-  TAdapterSimple = class (TInterfacedObject, IPlugEua)
+  TAdapterSimple = class(TInterfacedObject, IPlugEua)
   private
-    FPlugAdapted : IPlugUk;
+    FPlugAdapted: IPlugUk;
   public
     procedure ThreeHoleOnPlug;
     procedure VoltageEua;
-    constructor Create (Adapter :IPlugUk);
+    constructor Create(Adapter: IPlugUk);
   end;
 
 implementation
