@@ -1,7 +1,6 @@
 program MyTvSet;
 
 {$APPTYPE CONSOLE}
-
 {$R *.res}
 
 uses
@@ -14,27 +13,35 @@ uses
   UnCombustivel in 'UnCombustivel.pas';
 
 var
-  MyAutomaticPillot : TAutomaticPillot;
-  Velocidade : TVelocidade;
-  Turbo : TTurbo;
-  Porta : TPortas;
-  Curvas : TCurvas;
-  Combustivel : TCombustivel;
+  MyAutomaticPillot: TAutomaticPillot;
+  Velocidade: TVelocidade;
+  Turbo: TTurbo;
+  Porta: TPortas;
+  Curvas: TCurvas;
+  Combustivel: TCombustivel;
+
 begin
-  MyAutomaticPillot := TAutomaticPillot.Create(Velocidade,Turbo, Porta, Curvas, Combustivel);
+  MyAutomaticPillot := nil;
+  Velocidade := nil;
+  Turbo := nil;
+  Porta := nil;
+  Curvas := nil;
+  Combustivel := nil;
   try
-  MyAutomaticPillot.Attivar;
-  Readln;
-  MyAutomaticPillot.Desligar;
-  Readln;
-  try
-    { TODO -oUser -cConsole Main : Insert code here }
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end;
+    MyAutomaticPillot := TAutomaticPillot.Create(Velocidade, Turbo, Porta,
+      Curvas, Combustivel);
+    try
+      MyAutomaticPillot.Attivar;
+      Readln;
+      MyAutomaticPillot.Desligar;
+      Readln;
+    except
+      on E: Exception do
+        Writeln(E.ClassName, ': ', E.Message);
+    end;
   finally
-  ReportMemoryLeaksOnShutdown := True;
-  MyAutomaticPillot.Free;
+    ReportMemoryLeaksOnShutdown := True;
+    MyAutomaticPillot.Free;
   end;
+
 end.

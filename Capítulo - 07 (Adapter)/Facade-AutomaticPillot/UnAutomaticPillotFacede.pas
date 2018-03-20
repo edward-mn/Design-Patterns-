@@ -3,25 +3,24 @@ unit UnAutomaticPillotFacede;
 interface
 
 uses
-   System.SysUtils, UnVelocidade, UnTurbo, UnPortas, UnCurvas, UnCombustivel;
+  System.SysUtils, UnVelocidade, UnTurbo, UnPortas, UnCurvas, UnCombustivel;
 
 type
   TAutomaticPillot = class
   private
-    FVelocidade : TVelocidade;
-    FTurbo : TTurbo;
-    FPorta : TPortas;
-    FCurvas : TCurvas;
-    FCombustivel : TCombustivel;
+    FVelocidade: TVelocidade;
+    FTurbo: TTurbo;
+    FPorta: TPortas;
+    FCurvas: TCurvas;
+    FCombustivel: TCombustivel;
   public
     procedure Attivar;
     procedure Desligar;
-    constructor Create (AVelocidade: TVelocidade; ATurbo: TTurbo; APorta: TPortas; ACurva: TCurvas; ACombustivel: TCombustivel);
+    constructor Create(AVelocidade: TVelocidade; ATurbo: TTurbo;
+      APorta: TPortas; ACurva: TCurvas; ACombustivel: TCombustivel);
   end;
 
 implementation
-
-
 
 { TAutomaticPillot }
 
@@ -37,11 +36,11 @@ end;
 constructor TAutomaticPillot.Create(AVelocidade: TVelocidade; ATurbo: TTurbo;
   APorta: TPortas; ACurva: TCurvas; ACombustivel: TCombustivel);
 begin
-  AVelocidade := TVelocidade.Create;
-  ATurbo := TTurbo.Create;
-  APorta := TPortas.Create;
-  ACurva := TCurvas.Create;
-  ACombustivel := TCombustivel.Create;
+  FVelocidade := AVelocidade;
+  FTurbo := ATurbo;
+  FPorta := APorta;
+  FCurvas := ACurva;
+  FCombustivel := ACombustivel;
 end;
 
 procedure TAutomaticPillot.Desligar;
