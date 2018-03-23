@@ -15,7 +15,6 @@ type
     function GetAge(Age: Integer): string; override;
     function GetPhone(Tel: Integer): string; override;
     constructor Create(Person : string);
-    destructor Destroy; override;
   end;
 
 implementation
@@ -25,12 +24,6 @@ implementation
 constructor TSubjectInformation.Create(Person: string);
 begin
   Self.FPerson := Person;
-end;
-
-destructor TSubjectInformation.Destroy;
-begin
-
-  inherited;
 end;
 
 function TSubjectInformation.GetAddress(Address: string;  Number: Integer): string;
