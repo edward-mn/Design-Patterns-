@@ -1,9 +1,11 @@
 object FormPrincipal: TFormPrincipal
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'Autentica'#231#227'o de Portas'
-  ClientHeight = 111
-  ClientWidth = 256
+  ClientHeight = 121
+  ClientWidth = 316
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,15 +15,28 @@ object FormPrincipal: TFormPrincipal
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 27
+  object LbSelecionePort: TLabel
+    Left = 43
     Top = 28
     Width = 83
     Height = 13
     Caption = 'Selecione a porta'
   end
+  object LbServidor: TLabel
+    Left = 13
+    Top = 86
+    Width = 247
+    Height = 19
+    Caption = 'Aguardando Estado Servidor...'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object BtnLogar: TBitBtn
-    Left = 163
+    Left = 179
     Top = 45
     Width = 75
     Height = 25
@@ -30,7 +45,7 @@ object FormPrincipal: TFormPrincipal
     OnClick = BtnLogarClick
   end
   object EdPorta: TEdit
-    Left = 27
+    Left = 43
     Top = 47
     Width = 121
     Height = 21

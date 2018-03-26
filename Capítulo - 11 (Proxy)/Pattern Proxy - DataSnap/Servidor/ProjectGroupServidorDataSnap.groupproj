@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{70EDE58A-B349-4ECB-8268-9677C635C124}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Servidor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Desktop\Desktop.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Servidor">
+        <MSBuild Projects="Servidor.dproj"/>
+    </Target>
+    <Target Name="Servidor:Clean">
+        <MSBuild Projects="Servidor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Servidor:Make">
+        <MSBuild Projects="Servidor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Desktop">
+        <MSBuild Projects="..\Desktop\Desktop.dproj"/>
+    </Target>
+    <Target Name="Desktop:Clean">
+        <MSBuild Projects="..\Desktop\Desktop.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Desktop:Make">
+        <MSBuild Projects="..\Desktop\Desktop.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Servidor;Desktop"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Servidor:Clean;Desktop:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Servidor:Make;Desktop:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
