@@ -1,7 +1,7 @@
 object ServerMethods1: TServerMethods1
   OldCreateOrder = False
-  Height = 386
-  Width = 440
+  Height = 275
+  Width = 274
   object FDGUIxWaitCursor: TFDGUIxWaitCursor
     Provider = 'Forms'
     Left = 56
@@ -11,7 +11,7 @@ object ServerMethods1: TServerMethods1
     Left = 56
     Top = 96
   end
-  object FDConnection: TFDConnection
+  object FDConnectionProfessor: TFDConnection
     Params.Strings = (
       'Server=localhost'
       'Port=5434'
@@ -20,12 +20,21 @@ object ServerMethods1: TServerMethods1
       'User_Name=postgres'
       'ExtendedMetadata=True'
       'DriverID=PG')
-    Left = 216
+    Connected = True
+    LoginPrompt = False
+    Left = 176
     Top = 32
   end
-  object FDQuery: TFDQuery
-    Connection = FDConnection
-    Left = 216
+  object FDQueryProfessor: TFDQuery
+    Connection = FDConnectionProfessor
+    SQL.Strings = (
+      'select * from professores;')
+    Left = 176
     Top = 120
+  end
+  object dspProfessor: TDataSetProvider
+    DataSet = FDQueryProfessor
+    Left = 176
+    Top = 192
   end
 end

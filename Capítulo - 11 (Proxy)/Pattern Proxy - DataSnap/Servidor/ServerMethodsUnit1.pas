@@ -3,20 +3,21 @@ unit ServerMethodsUnit1;
 interface
 
 uses System.SysUtils, System.Classes, System.Json,
-    Datasnap.DSServer, Datasnap.DSAuth, DataSnap.DSProviderDataModuleAdapter,
+  Datasnap.DSServer, Datasnap.DSAuth, Datasnap.DSProviderDataModuleAdapter,
   FireDAC.UI.Intf, FireDAC.VCLUI.Wait, FireDAC.Phys.MySQLDef, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.PG,
   FireDAC.Phys.PGDef, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
   FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  FireDAC.Phys.MySQL, FireDAC.Comp.UI;
+  FireDAC.Phys.MySQL, FireDAC.Comp.UI, Datasnap.Provider;
 
 type
   TServerMethods1 = class(TDSServerModule)
     FDGUIxWaitCursor: TFDGUIxWaitCursor;
     FDPhysMySQLDriverLink: TFDPhysMySQLDriverLink;
-    FDConnection: TFDConnection;
-    FDQuery: TFDQuery;
+    FDConnectionProfessor: TFDConnection;
+    FDQueryProfessor: TFDQuery;
+    dspProfessor: TDataSetProvider;
   private
     { Private declarations }
   public
@@ -27,9 +28,7 @@ type
 
 implementation
 
-
 {$R *.dfm}
-
 
 uses System.StrUtils;
 
@@ -44,4 +43,3 @@ begin
 end;
 
 end.
-
