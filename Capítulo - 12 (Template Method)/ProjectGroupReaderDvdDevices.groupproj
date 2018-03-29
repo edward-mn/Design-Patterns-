@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D8ACDA96-89B0-4305-B24F-FE982320C9DF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TemplateMethod.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TemplateMethod">
+        <MSBuild Projects="TemplateMethod.dproj"/>
+    </Target>
+    <Target Name="TemplateMethod:Clean">
+        <MSBuild Projects="TemplateMethod.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TemplateMethod:Make">
+        <MSBuild Projects="TemplateMethod.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TemplateMethod"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TemplateMethod:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TemplateMethod:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
