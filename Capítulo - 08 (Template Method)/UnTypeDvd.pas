@@ -6,20 +6,20 @@ uses
   System.SysUtils, UnDeviceReader;
 
 type
-  TOldDvd = class (TDeviceReader)
+  TOldDvd = class(TDeviceReader)
   public
     procedure ConfigAudio; override;
     procedure ConfigResolution; override;
+    procedure NameDvd; override;
     constructor Create(MovieName: string);
-    destructor Destroy; override;
   end;
 
-  TNewDvd = class (TDeviceReader)
+  TNewDvd = class(TDeviceReader)
   public
     procedure ConfigAudio; override;
     procedure ConfigResolution; override;
+    procedure NameDvd; override;
     constructor Create(MovieName: string);
-    destructor Destroy; override;
   end;
 
 implementation
@@ -43,10 +43,10 @@ begin
   Movie := MovieName;
 end;
 
-destructor TOldDvd.Destroy;
+procedure TOldDvd.NameDvd;
 begin
-
   inherited;
+  Writeln('Old Dvd model - SempToshiba');
 end;
 
 { TNewDvd }
@@ -68,10 +68,10 @@ begin
   Movie := MovieName;
 end;
 
-destructor TNewDvd.Destroy;
+procedure TNewDvd.NameDvd;
 begin
-
   inherited;
+  Writeln('New Dvd model - BlueRayDvd');
 end;
 
 end.
