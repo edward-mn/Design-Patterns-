@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9495D00C-8E54-4A94-AF26-EB770653CF79}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BridgePattern.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BridgePattern">
+        <MSBuild Projects="BridgePattern.dproj"/>
+    </Target>
+    <Target Name="BridgePattern:Clean">
+        <MSBuild Projects="BridgePattern.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BridgePattern:Make">
+        <MSBuild Projects="BridgePattern.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BridgePattern"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BridgePattern:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BridgePattern:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
