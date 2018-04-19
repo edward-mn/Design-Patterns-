@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{417A19D6-B2D7-43FD-99D6-C9AD88D8B520}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PatternIterator.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PatternIterator">
+        <MSBuild Projects="PatternIterator.dproj"/>
+    </Target>
+    <Target Name="PatternIterator:Clean">
+        <MSBuild Projects="PatternIterator.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PatternIterator:Make">
+        <MSBuild Projects="PatternIterator.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PatternIterator"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PatternIterator:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PatternIterator:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
