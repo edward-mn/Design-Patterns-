@@ -6,11 +6,11 @@ uses
   System.SysUtils, UnIteratorInterface, UnItensInventory, UnItensOfArray;
 
 type
-  TInteratorItensInventory = class (TInterfacedObject, IIterator)
+  TInteratorItensInventory = class(TInterfacedObject, IIterator)
   private
-    FListItens : TItensOfArray;
-    FPosition : Integer;
-    FInventory : TItensInventory;
+    FListItens: TItensOfArray;
+    FPosition: Integer;
+    FInventory: TItensInventory;
   public
     function HasNext: Boolean;
     function Next: TItensInventory;
@@ -19,8 +19,8 @@ type
     function GetQuantity: Integer;
     function GetIsFireWeapon: Boolean;
     function GetPriceToSell: Currency;
-    constructor Create (AListItens: TItensOfArray);
-    destructor Destroy ; override;
+    constructor Create(AListItens: TItensOfArray);
+    destructor Destroy; override;
   end;
 
 implementation
@@ -35,7 +35,7 @@ end;
 
 destructor TInteratorItensInventory.Destroy;
 var
-  Item : TItensInventory;
+  Item: TItensInventory;
 begin
   for Item in Self.FListItens do
     Item.Free;
@@ -74,7 +74,7 @@ end;
 
 function TInteratorItensInventory.HasNext: Boolean;
 begin
-  if (FPosition = Length(FListItens)) and ( FListItens[FPosition] = nil ) then
+  if (FPosition > Length(FListItens)) and (FListItens[FPosition] = nil) then
     Result := False
   else
     Result := True;
@@ -83,7 +83,7 @@ end;
 function TInteratorItensInventory.Next: TItensInventory;
 begin
   FInventory := FListItens[FPosition];
-  FPosition := FPosition +1;
+  FPosition := FPosition + 1;
   Result := FInventory;
 end;
 
