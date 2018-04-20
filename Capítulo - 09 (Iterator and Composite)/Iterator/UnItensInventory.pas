@@ -20,6 +20,7 @@ type
     function Quantity: Integer;
     function IsFireWeapon: Boolean;
     function PriceToSell: Currency;
+    function ToString: string; override;
   end;
 
 implementation
@@ -59,6 +60,15 @@ end;
 function TItensInventory.Quantity: Integer;
 begin
   Result := FQuantity;
+end;
+
+function TItensInventory.ToString: string;
+begin
+  // Concatenate the last object list
+  Result := 'Name: ' + FName + sLineBreak + 'Description: ' + FDescription +
+    sLineBreak + 'Quantity: ' + (FQuantity.ToString) + sLineBreak +
+    'Fire weapon is it ? ' + (BoolToStr(FFireWeapon, True)) + sLineBreak +
+    'Price: ' + CurrToStr(FSell) + ' U$';
 end;
 
 end.

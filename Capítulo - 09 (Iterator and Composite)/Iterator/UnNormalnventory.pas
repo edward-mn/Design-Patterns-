@@ -6,52 +6,45 @@ uses
   UnInventoryInterface;
 
 type
-  TNormalInventory = class (TInterfacedObject, IInventory)
+  TNormalInventory = class(TInventory)
   public
-    function GetDescription: string;
-    function GetIsFireWeapon(IsFireWeapon: string): Boolean;
-    function GetName: string;
-    function GetPriceToSell: Currency;
-    function GetQuantity: Integer;
-//    procedure de
+    function GetADescription: string; override;
+    function GetAIsFireWeapon: Boolean; override;
+    function GetAName: string; override;
+    function GetAPriceToSell: Currency; override;
+    function GetAQuantity: Integer; override;
   end;
 
 implementation
 
 uses
-  System.StrUtils;
+  System.StrUtils, System.SysUtils;
 
 { TNormalInventory }
 
-function TNormalInventory.GetDescription: string;
+function TNormalInventory.GetADescription: string;
 begin
   Result := 'Normal Inventory';
 end;
 
-function TNormalInventory.GetIsFireWeapon(IsFireWeapon: string): Boolean;
+function TNormalInventory.GetAIsFireWeapon: Boolean;
 begin
-  if IsFireWeapon = 'Yes, it is a Fire Weapon' then
-   Result := True
-   else
-   IsFireWeapon := 'it is not a fire weapon';
-   Result := False;
-
-   Readln(IsFireWeapon);
+  Result := False;
 end;
 
-function TNormalInventory.GetName: string;
+function TNormalInventory.GetAName: string;
 begin
-  Result := 'Snow Bag'
+  Result := 'Snow Bag';
 end;
 
-function TNormalInventory.GetPriceToSell: Currency;
+function TNormalInventory.GetAPriceToSell: Currency;
 begin
-  Result := 18.25;
+  Result := 12.22;
 end;
 
-function TNormalInventory.GetQuantity: Integer;
+function TNormalInventory.GetAQuantity: Integer;
 begin
-  Result := 15;
+  Result := 10;
 end;
 
 end.
