@@ -3,7 +3,18 @@
 
 <p align="center">
    <img src="./Dlls - PostgreSQL/img/design-patterns-logo.png" alt="Logo Design Patterns - PTBR"/><br>
-  Repository created for <strong>solving the exercises</strong> in the book and also <strong>understanding</strong> the specific standards
+   Repository created for <strong>solving the exercises</strong> in the book and also <strong>understanding</strong> the specific standards.
+   <br><br>
+   <a href="https://github.com/edward-mn/Design-Patterns-/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/edward-mn/Design-Patterns-?color=db930d&logo=github">
+  </a>
+   
+  <a href="https://img.shields.io/github/forks/edward-mn/Design-Patterns-?style=social">
+    <img alt="Forks" src="https://img.shields.io/github/forks/edward-mn/Design-Patterns-?style=social">
+  </a>
+  
+  <img alt="Description" src="https://img.shields.io/badge/book-design_patterns-2072d6"> 
+  <img alt="Language" src="https://img.shields.io/badge/language-delphi-cc3216"> 
 </p>
 
 # :pushpin: Mardown
